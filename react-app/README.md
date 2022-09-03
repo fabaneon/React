@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# React Study Template
+이 폴더는 Create-React-app 을 통해 내려받을 수 있는 React 개발의 기본 라이브러리입니다.첫
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+따라서 아래 절차에 실패하였다면 언제든 돌아와 다시 첫번째 버전을 내려받으시면 됩니다.
 
-## Available Scripts
+첫번째 버전 이후는 제가 공부를 하며 추가되는 내용들이니 참고바랍니다.
 
-In the project directory, you can run:
+Start 2022-09-04 ~ 
 
-### `npm start`
+## 설치 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+터미널 혹은 cmd에서 특정 폴더로 npm install -g create-react-app 을 입력하면
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+자동으로 내려받아집니다.
 
-### `npm test`
+node.js의 npm을 사용해야하니 node.js의 사전설치는 필수입니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 앱 실행
 
-### `npm run build`
+이후 사용하는 컴파일러의 터미널로 또는 일반 터미널로 라이브러리가 설치된 폴더로 이동한 다음
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm run start 로 해당 app을 실행할 수 있습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+이후 작업을 지속하시면 됩니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 배포 (실서버 환경 최적화)
 
-### `npm run eject`
+작업이 완료되면 배포를 하여 실서버 환경에 맞도록 최적화를 시켜야하는데 이는 
+npm run build를 터미널에 입력하면 됩니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+기존 React 라이브러리에 build 디렉토리가 추가될것이며 이 내부에 있는 소스들은 불필요 데이터를 전부 살균한 내용입니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+따라서 실제 웹서버에 저장하는 페이지 소스들은 해당 build 디렉토리의 내용으로 사용하시면 됩니다.
