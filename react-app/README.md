@@ -1,5 +1,5 @@
 # React Study Template
-이 폴더는 Create-React-app 을 통해 내려받을 수 있는 React 개발의 기본 라이브러리입니다.첫
+이 폴더는 Create-React-app 을 통해 내려받을 수 있는 React 개발의 기본 라이브러리입니다.
 
 따라서 아래 절차에 실패하였다면 언제든 돌아와 다시 첫번째 버전을 내려받으시면 됩니다.
 
