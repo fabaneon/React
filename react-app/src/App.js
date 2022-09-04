@@ -19,54 +19,55 @@ function Article(props){
     // }
 function Memberlist(props){
   let memberlist = [
-  {id: 0, team:"철벽생활관", name:  "박상우"},
-  {id: 1, team:"철벽생활관", name:  "정재엽"},
-  {id: 2, team:"철벽생활관", name:  "박준홍"},
-  {id: 3, team:"철벽생활관", name:  "황태훈"},
-  {id: 4, team:"철벽생활관", name:  "유근영"},
-  {id: 5, team:"철벽생활관", name:  "이연호"},
-  {id: 6, team:"철벽생활관", name:  "손창현"},
-  {id: 7, team:"철벽생활관", name:  "차승민"},
-  {id: 8, team:"철벽생활관", name:  "정현재"},
+  {id: 0, title:'철벽생활관', body:  '박상우'},
+  {id: 1, title:'철벽생활관', body:  '정재엽'},
+  {id: 2, title:'철벽생활관', body:  '박준홍'},
+  {id: 3, title:'철벽생활관', body:  '황태훈'},
+  {id: 4, title:'철벽생활관', body:  '유근영'},
+  {id: 5, title:'철벽생활관', body:  '이연호'},
+  {id: 6, title:'철벽생활관', body:  '손창현'},
+  {id: 7, title:'철벽생활관', body:  '차승민'},
+  {id: 8, title:'철벽생활관', body:  '정현재'},
 
-  {id: 9,  team:"결전생활관", name:  "김현재"},
-  {id: 10, team:"결전생활관", name:  "이주환"},
-  {id: 11, team:"결전생활관", name:  "변민주"},
-  {id: 12, team:"결전생활관", name:  "정재형"},
-  {id: 13, team:"결전생활관", name:  "류재국"},
-  {id: 14, team:"결전생활관", name:  "김연승"},
-  {id: 15, team:"결전생활관", name:  "박서준"},
+  {id: 9,  title:'결전생활관', body:  '김현재'},
+  {id: 10, title:'결전생활관', body:  '이주환'},
+  {id: 11, title:'결전생활관', body:  '변민주'},
+  {id: 12, title:'결전생활관', body:  '정재형'},
+  {id: 13, title:'결전생활관', body:  '류재국'},
+  {id: 14, title:'결전생활관', body:  '김연승'},
+  {id: 15, title:'결전생활관', body:  '박서준'},
 
-  {id: 16, team:"태풍생활관", name:  "홍석준"},
-  {id: 17, team:"태풍생활관", name:  "박병인"},
-  {id: 18, team:"태풍생활관", name:  "고경엽"},
-  {id: 19, team:"태풍생활관", name:  "이대현"}
+  {id: 16, title:'태풍생활관', body:  '홍석준'},
+  {id: 17, title:'태풍생활관', body:  '박병인'},
+  {id: 18, title:'태풍생활관', body:  '고경엽'},
+  {id: 19, title:'태풍생활관', body:  '이대현'}
   ];
 
   let mbr = [];
   for (var i = 0; i < memberlist.length; i++){
-    if(props == 1 && memberlist[i].team === "철벽생활관"){
-      mbr.push( memberlist[i].team + " : " + memberlist[i].name + `\n`);
+    if(props == 1 && memberlist[i].title === "철벽생활관"){
+      mbr.push(memberlist[i]);
       console.log("들어간 값 : " + mbr);
     }
-    else if(props == 2 && memberlist[i].team === "결전생활관"){
-      mbr.push( memberlist[i].team + " : " + memberlist[i].name + `\n`);
+    else if(props == 2 && memberlist[i].title === "결전생활관"){
+      mbr.push(memberlist[i]);
       console.log("들어간 값 : " + mbr);
     }
-    else if(props == 3 && memberlist[i].team === "태풍생활관"){
-      mbr.push( memberlist[i].team + " : " + memberlist[i].name + `\n`);
+    else if(props == 3 && memberlist[i].title === "태풍생활관"){
+      mbr.push(memberlist[i]);
       console.log("들어간 값 : " + mbr);
     }
     else{
       console.log("아무것도 못들어감");
     }
-    console.log(i+"번째 반복 | 팀명 :" + memberlist[i].team);
+    console.log(i+"번째 반복 | 팀명 :" + memberlist[i].title);
   }
 
   console.log("클릭한 링크의 id값 : "+props);
   console.log(mbr);
-
-  alert(mbr);
+  console.log("선택된 생활관 : "+mbr[0].title);
+  // Article(mbr);
+  // 이제 객체로 정리된 mbr 값을 Article 컴포넌트로 보내어 화면에 출력하면 된다.
 }
 
 function Header(props){
