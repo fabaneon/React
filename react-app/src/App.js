@@ -68,6 +68,7 @@ function Memberlist(props){
   console.log("선택된 생활관 : "+mbr[0].title);
   // Article(mbr);
   // 이제 객체로 정리된 mbr 값을 Article 컴포넌트로 보내어 화면에 출력하면 된다.
+  // 해당 내용은 state 개념 학습 후 진행.
 }
 
 function Header(props){
