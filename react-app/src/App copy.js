@@ -67,7 +67,19 @@ function Memberlist(props,_props2){
   console.log("클릭한 링크의 id값 : "+props);
   console.log(mbr);
   console.log("선택된 생활관 : "+mbr[0].title);
+  _props2.ArticleContents = <Article title ={mbr.title} body={mbr.body}></Article>;
+  if(props.id === 1){
+    
+  }
+  else if(props.id === 2){
 
+  }
+  else if(props.id === 3){
+
+  }
+  else{
+
+  }
 
   // Article(mbr);
   // 이제 객체로 정리된 mbr 값을 Article 컴포넌트로 보내어 화면에 출력하면 된다.
