@@ -55,8 +55,7 @@ function App() {
   // const setMode = _mode[1];
   const [mode, setMode] = useState('Welcome');
   const [id, setId] = useState(null);
-  console.log(mode +" 모드 : 셋모드 " + setMode);
-  console.log(id + " 아이디 : 셋아이디 " + setId);
+  console.log(mode + " 모드 : 아이디 " + id);
 
   let links = [
     [
@@ -90,6 +89,7 @@ function App() {
   ]  
     ];
   
+  console.log(links.length);
   let ArticleContents = null;
   if(mode === 'Welcome'){
     ArticleContents = <Article title ="기본 페이지" body="이곳은 기본 페이지 입니다."></Article>;
