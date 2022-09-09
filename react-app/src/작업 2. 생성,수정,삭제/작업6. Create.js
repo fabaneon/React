@@ -9,7 +9,6 @@ function Article(props){
         <h2>{props.title}</h2>
         {props.body}
     </article>
-    
       );
 }
 
@@ -136,9 +135,10 @@ function App(){
         newlink[nextId].push(newlinks);
         setLinks(links);
         setMode('Read');
+        setNextlocal(nextLocal+1);
         setId(nextId);
         setNextId(nextId+1);
-        setNextlocal(nextLocal+1);
+
       }}></Create>;
     }
     console.log(links); 
@@ -164,3 +164,11 @@ function App(){
 
 
 export default App;
+
+
+// 확실한 한가지를 배웠다.
+// 계속해서 발생하는 TypeError: Cannot read properties of null (reading 'ooo')
+// 과 같은 에러는 내가 읽어오려는 메소드 혹은 프로퍼티에 지정된 값을 읽을 수 없을때 발생한다.
+// 시도 4. 와 이번 6. 을 작업하며 발생했던 배열-객체값 타입에러는 배열 [n] 값을 i로 지정하여 반복문으로 구동하였을때
+// 해당 위치에 있는 값이 없어서 발생했던 오류들이였다.
+// 이와 같은 오류가 다음에도 발생한다면 이점을 명심하고 다시 점검해보자.
