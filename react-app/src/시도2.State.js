@@ -1,3 +1,4 @@
+import React, {Component} from 'react'
 import './App.css';
 import {useState} from 'react';
 
@@ -39,7 +40,8 @@ function Nav(props){
     lis.push(<li key={a.id}><a target ="_blank" rel="noreferrer" id={a.id} href={'/read/' + a.url}
       onClick={function(event){
         event.preventDefault();
-        props.onChangeMode(event.target.id);
+        props.onChangeMode(Number(event.target.id));
+        
       }} >{a.title}</a></li>);
   
   }
@@ -49,41 +51,41 @@ function Nav(props){
     </ul>
   );
 }
-function App() {
-  // const _mode = useState(0);
-  // const mode = _mode[0];
-  // const setMode = _mode[1];
-  const [mode, setMode] = useState('0');
-  console.log(mode +" : " + setMode);
-  let links = [
-    {id: 1, title: '철벽생활관', url: "https://namu.wiki/w/A" },
-    {id: 2, title: '결전생활관', url: "https://namu.wiki/w/B" },
-    {id: 3, title: '태풍생활관', url: "https://namu.wiki/w/C" }
-  ]
-  let ArticleContents = null;
-  if(mode === '0'){
-    ArticleContents = <Article title ="기본 페이지" body="이곳은 기본 페이지 입니다."></Article>;
-  }
-  else if(mode === '1'){
-    ArticleContents = <Article title ="철벽 생활관" body="이곳은 철벽 생활관 입니다."></Article>;
-  }
-  else if(mode === '2'){
-    ArticleContents = <Article title ="결전 생활관" body="이곳은 결전 생활관 입니다."></Article>;
-  }
-  else if(mode === '3'){
-    ArticleContents = <Article title ="태풍 생활관" body="이곳은 태풍 생활관입니다."></Article>;
-  }
+function App(){
 
   
+    // const _mode = useState(0);
+    // const mode = _mode[0];
+    // const setMode = _mode[1];
+    const [mode, setMode] = useState('0');
+    const [id, setId] = useState(null);
+    console.log(mode +" : " + setMode);
+    let links = [
+      {id: 0, title: '철벽생활관', body: "이곳은 철벽 생활관 입니다." },
+      {id: 1, title: '결전생활관', body: "이곳은 결전 생활관 입니다." },
+      {id: 2, title: '태풍생활관', body: "이곳은 태풍 생활관입니다." }
+    ]
+    let ArticleContents = null;
+    if(mode === 'Welcome'){
+      ArticleContents = <Article title ="기본 페이지" body="이곳은 기본 페이지 입니다."></Article>;
+    }
+    else if(mode === 'Read'){
+        ArticleContents = <Article title = {links[id].title} body={links[id].body}></Article>;
+    }
+    
+
+    
     return(
       <div className="App">
-        <Header title = "Welcome to my React Study." onChangeMode={()=>{setMode('0');}}></Header>
+        <Header title = "Welcome to my React Study." onChangeMode={()=>{setMode('Welcome');}}></Header>
         <Nav links = {links} onChangeMode={function(id){
-          setMode(id);}}></Nav>
+          setMode('Read');setId(id)}}></Nav>
         {ArticleContents}
 
       </div>
     );
+  
+
 }
 
 export default App;
