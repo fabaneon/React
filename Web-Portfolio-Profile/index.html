@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+
+  <head>
+    <title>Fabaneon-Profile</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Private Portfolio">
+    <meta name="author" content="Park Sang Woo">
+    <meta name="kewords" content="Dev,PM,FrontEndDev,BackEndDev,Portfolio">
+    <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
+  </head>
+
+  <body>
+    <div>
+        <h1 id = "title"><u>Welcome to my Profile !</u></h1>
+        <h3>환영합니다. 아래 목차를 통해서 절 소개해드리겠습니다 :)</h3>
+        <h5>빠르지만 서두르진 말고.. 조금씩 서로에 대해 알아보자구요.</h5>
+    </div>
+    <hr>
+
+    <div>
+      <input type="button" value="Night Mode" onclick='daynight(this)'>
+        <figure>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/8R_NzVpTOfQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </figure>
+          <p>
+            <span id="important">프로필 작성 방법</span> <br>
+          </p>
+
+        <ul>
+          <p>
+            <li><a href="about.html" title="자신에 대한 소개글">About Me</a></li>
+            Fabaneon이라는 사람의 이야기를 들려드리겠습니다.<br>
+          </p>
+          <p>
+            <li><a href="career.html" title="2018.01 ~ 2022.02">My Career</a></li>
+            최근 3년간 걸어온 길을 확인하실 수 있습니다.<br>
+          </p>
+          <p>
+            <li><a href="roadmap.html" title="앞으로 나아갈 길">Own RoadMap</a></li>
+            앞으로의 계획을 확인하실 수 있습니다.<br>
+          </p>
+          <p>
+            <li><a href="contact.html" title="연락수단">Contact</a></li>
+            연락수단을 남겨두었습니다.<br>
+          </p>
+        </ul>
+    </div>
+
+    <hr>
+
+      <label for="about"> <h3 id="title">Fabaneon</h3></label>
+
+        <a href="About.html" title="자신에 대한 소개글">
+            <img id="about" src="img\index_profile_img.png" width="100"alt="profile image">
+        </a>
+
+    <hr>
+    <section>
+            <h3 id="title">종합 결과물</h3>
+        <ul>
+          <p>
+            본 웹페이지는 22.08.10 ~ 08.13 까지의 <span id="important">html 기본 문법</span> 학습내용을 복습하기 위해 만들어졌습니다. <br>
+            오직 HTML만 사용되어 제작되었기 때문에 가독성이 떨어진다는 점 양해바랍니다.<br>
+            <span id="notice">+2022-09-02 추가</span> <br>
+            현재 공부중인 <span id="important">javascript</span>와 약간의 <span id="important">css</span>를 더해 페이지를 개선시켰습니다.<br>
+            하지만 그 정도는 미미하니 참고바랍니다. <br>
+          </p>
+        </ul>
+
+    </section>
+    <hr>
+    <footer>
+      <form action="http://localhost/feedback.php" method="post">
+        <label for="Total_Feedback"> - FeedBack - </label> <br>
+        <input type="text" name="id" value="이름을 적어주세요"> <br>
+        <textarea id="Total_Feedback" name="Feedback" rows="8" cols="80">피드백은 언제나 환영합니다.</textarea><br>
+        <input type="submit">
+      </form>
+      <script src="js/function/date.js"></script>
+    </footer>
+    <!-- 대부분의 스크립트는 되도록 문서 맨 밑단에 배치 -->
+    <script type="text/javascript" src="js/function/DayNightHandler.js"></script>
+    <script type="text/javascript" src="js/function/ColorEditor.js"></script>
+  </body>
+
+</html>
