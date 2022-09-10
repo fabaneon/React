@@ -1,166 +1,70 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './App.css';
-import {useState} from 'react';
+import CRUD from './CRUD'
 
+function MainArticle(props){
 
-function Article(props){
   return(
-    <article>
-        <h2>{props.title}</h2>
-        {props.body}
-    </article>
-    
-      );
-}
-
-    // function Title_Button(){
-    //   return (
-    //     <section>
-    //       <input type="text" id ="input_title" placeholder="변경할 제목을 입력">
-    //       <button type ="button" onClick={title_replacer()}> 제목 변경</button>
-    //     </section>
-    //   );
-    // }
-
-function Header(props){
-      return(
-        <header>
-          <h1><u><a href="/" onClick={(event)=>{
-            event.preventDefault();
-            props.onChangeMode();
-          }}>{props.title}</a></u></h1>
-          <img src="logo192.png" alt="logo"/>
-          <h3>환영합니다. 아래 목차를 통해서 React 학습 결과물을 열람해볼 수 있습니다 :)</h3>
-          <h5>추신. 단기 Toy Project.</h5>
-        </header>
-      );
-    }
-function Nav(props){
-  const lis = []
-      for(let i = 0; i < props.links.length; i++){
-        let a = props.links[i];
-        lis.push(<li key={a[0].class}><a target ="_blank" rel="noreferrer" id={a[0].class} href={'/read/' + a[0].title}
-        onClick={function(event){
-          event.preventDefault();
-          props.onChangeMode(Number(event.target.id));
-        }} >{a[0].title}</a></li>);
-      }
-
- 
-  return (
-    <ul>
-      {lis}
-    </ul>
+    <div>
+      <h1>{props.title}</h1>
+      <h3>{props.subtitle}</h3>
+      {props.body}
+    </div>
   );
 }
-function Create(props){
-  return (
-    <article>
-      <h1>Create</h1>
-      <form onSubmit={(event)=>{
+
+function MainNav(props){
+
+  return(
+    <div>
+      <li><a title="2022-09-04 ~ 2022-09-10" href="/CRUD/" onClick={(event)=>{
         event.preventDefault();
-        let title = event.target.title.value;
-        let body = event.target.body.value;
-        props.onCreate(title,body);
-      }}>
-        <p><input type="text" name="title" placeholder="input title"/></p>
-        <p><textarea name="body" paceholder="input body"></textarea></p>
-        <p><input type="submit" value="Create"></input></p>
-
-      </form>
-
-    </article>);
+        props.onChangeMode();
+      }} >생활관 명단 기능</a></li>
+    </div>
+  );
 }
 
 function App(){
+  const [mode, setMode] = useState('project-unselected');
+  // const [project, setProject] = useState('none')
+  let ArticleContents,Navi;
 
+  if(mode === 'project-unselected'){
+    ArticleContents = <MainArticle title = "Welcome to my React-Study" subtitle="환영합니다. 아래 목차를 통해서 React 학습 결과물을 열람해볼 수 있습니다 :)" body = "아래 버튼을 눌러 작업물을 확인해보세요."></MainArticle>
+    Navi = <MainNav onChangeMode = {()=>{
+      setMode('project-selected');
+    }}></MainNav>
+  }
 
-    // const _mode = useState(0);
-    // const mode = _mode[0];
-    // const setMode = _mode[1];
-    const [mode, setMode] = useState('Welcome');
-    const [id, setId] = useState(null);
-    const [nextLocal, setNextlocal] = useState(20);
-    const [nextId, setNextId] = useState(3);
-    console.log(mode +": mode | id :" + id + " nextId : " + nextId);
-    let [links, setLinks] = useState([
-      [
-        {id: 0, class: 0, title:'철벽생활관', body:  '박상우'},
-        {id: 1, class: 0, title:'철벽생활관', body:  '정재엽'},
-        {id: 2, class: 0, title:'철벽생활관', body:  '박준홍'},
-        {id: 3, class: 0, title:'철벽생활관', body:  '황태훈'},
-        {id: 4, class: 0, title:'철벽생활관', body:  '유근영'},
-        {id: 5, class: 0, title:'철벽생활관', body:  '이연호'},
-        {id: 6, class: 0, title:'철벽생활관', body:  '손창현'},
-        {id: 7, class: 0, title:'철벽생활관', body:  '차승민'},
-        {id: 8, class: 0, title:'철벽생활관', body:  '정현재'},
-      ],
-      [
-        {id: 9,  class: 1, title:'결전생활관', body:  '김현재'},
-        {id: 10, class: 1, title:'결전생활관', body:  '이주환'},
-        {id: 11, class: 1, title:'결전생활관', body:  '변민주'},
-        {id: 12, class: 1, title:'결전생활관', body:  '정재형'},
-        {id: 13, class: 1, title:'결전생활관', body:  '류재국'},
-        {id: 14, class: 1, title:'결전생활관', body:  '김연승'},
-        {id: 15, class: 1, title:'결전생활관', body:  '박서준'},
+  else if(mode === 'project-selected'){
+    ArticleContents = <CRUD></CRUD>
+    Navi = null;
+  }
+  
 
-      ],
-      [
-        {id: 16, class: 2, title:'태풍생활관', body:  '홍석준'},
-        {id: 17, class: 2, title:'태풍생활관', body:  '박병인'},
-        {id: 18, class: 2, title:'태풍생활관', body:  '고경엽'},
-        {id: 19, class: 2, title:'태풍생활관', body:  '이대현'}
-
-      ]
-    ]);
-    let ArticleContents = null;
-    let title,body = null ;
-    if(mode === 'Welcome'){
-      ArticleContents = <Article title ="환영합니다" body="위 버튼을 클릭하여 생활관 제원을 알아보십시오."></Article>;
-    }
-    else if(mode === 'Read'){
-        let bodyarticle = [];
-        title = links[id][0].title;
-        for(var i=0; i<links[id].length; i++){
-          bodyarticle.push(<div key ={links[id][i].body} >{links[id][i].body}</div>);
-        }
-        body = bodyarticle;
-        ArticleContents = <Article title = {title} body={body}></Article>;
-    }
-    else if(mode === 'Create'){
-
-      ArticleContents = <Create onCreate={(create_title,create_body)=>{
-        const newlinks = {id:nextLocal, class:nextId, title:create_title, body:create_body}
-        const newlink = links;
-        newlink[nextId] = [];
-        newlink[nextId].push(newlinks);
-        setLinks(links);
-        setMode('Read');
-        setId(nextId);
-        setNextId(nextId+1);
-        setNextlocal(nextLocal+1);
-      }}></Create>;
-    }
-    console.log(links); 
-    return(
-      <div className="App">
-        <Header title = "Welcome to my React Study." onChangeMode={()=>{setMode('Welcome');}}></Header>
-        <Nav links = {links} onChangeMode={function(id){
-          setMode('Read');setId(id)}}></Nav>
-        <li><a
-          href='/create'
-          onClick={function(event){
-           event.preventDefault();
-           setMode('Create');
-          }}>Create</a></li>
+  return(
+     <div className="App">
+      
         {ArticleContents}
+        <br/>
+        {Navi}
+      
+      <br/>
+      <li>
+        <button onClick={()=>{setMode('project-unselected');}}>처음으로</button>
+      </li>
+    </div>
+   
 
-      </div>
-    );
-    
+
+  );
+  
 
 }
 
 
-
 export default App;
+
+// 여태까지 만든 생성 추가  [ 수정과 삭제는 아직 미구현 ] 기능은 CRUD.JS 로 저장하여 불러와두었다.
+// 이제 새로운 기능들을 React로 만들어 이러한 형식으로 저장할것이며 점차 Web-App의 규모를 늘려가볼 생각이다.
