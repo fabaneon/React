@@ -138,8 +138,7 @@ function App(){
         let bodyarticle = [];
         title = links[id][0].title;
         for(var i=0; i<links[id].length; i++){
-          bodyarticle.push(<div key ={links[id][i].body}> {links[id][i].body}</div>);
-          bodyarticle.push(<input type="button" value="삭제" onClick={()=>{links[id].slice(i);}}/>);
+          bodyarticle.push(<div key ={links[id][i].body} >{links[id][i].body}</div>);
         }
         bodyarticle.push(<input key = "addingBtn"type="button" value="Adding" onClick={()=>{setMode('Add')}}/>);
         body = bodyarticle;
@@ -203,6 +202,6 @@ function App(){
 
 export default App;
 
-// 생성된 생활관에 인원을 추가하는 기능이다.
-// 작업속도도 굉장히 빨라진것같다.
-// 중간에 실수도 했는데 사실상 아직 배열관련 코드에 완전히 익숙해지지 않아서 그런듯.
+
+// 
+// 
