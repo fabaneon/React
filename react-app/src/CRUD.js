@@ -29,7 +29,7 @@ function Header(props){
             event.preventDefault();
             props.onChangeMode();
           }}>{props.title}</a></u></h1>
-          <img src="logo192.png" alt="logo"/>
+          <img src="/img/logo192.png" alt="logo"/>
         </header>
       );
     }

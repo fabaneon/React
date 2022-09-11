@@ -1,0 +1,16 @@
+a{
+    color:darkcyan;
+    background-color:'';
+  }
+  #title{
+    color: white;
+    background-color: darkgrey;
+  }
+  #important{
+    color: indianred;
+  }
+  #notice{
+    color: red;
+  }
+  
+  
