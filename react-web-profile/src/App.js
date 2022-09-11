@@ -1,14 +1,17 @@
-import react,{useState} from 'react';
+import {useState} from 'react';
 import './App.css';
+import About from './About'
+import Career from './Career'
+import Daynighthandler from './function/daynighthandler';
 
-function Header(){
+function Header(props){
 
   
   return(
     <header className="App-header">
-        <h1 id = "title"><u>Welcome to my React-Profile !</u></h1>
-        <h3>환영합니다. 아래 목차를 통해서 절 소개해드리겠습니다 :)</h3>
-        <h5>빠르지만 서두르진 말고.. 조금씩 서로에 대해 알아보자구요.</h5>
+        <h1 id = "title"><u>{props.title}</u></h1>
+        <h3>{props.subtitle}</h3>
+        <h5>{props.extra}</h5>
     </header>
 
   );
@@ -16,35 +19,30 @@ function Header(){
 }
 
 
-function Nav(){
+function Nav(props){
+  const lis = [];
+  for (let i=0; i<props.navcontents.length; i++){
+    let a = props.navcontents[i];
+    lis.push(<li key={a.id}><a id={a.id}href={'/read/' + a.title} title={a.body} 
+    onClick={(event)=>{
+      event.preventDefault();
+      props.onChangeMode(Number(event.target.id));
+    }}>{a.title}</a><br/>{a.description}</li>);
+  }
+
   return(
   <nav className="App-nav">
-            <ul>
-          <p>
-            <li><a href="about.html" title="자신에 대한 소개글">About Me</a></li>
-            Fabaneon이라는 사람의 이야기를 들려드리겠습니다.<br/>
-          </p>
-          <p>
-            <li><a href="career.html" title="2018.01 ~ 2022.02">My Career</a></li>
-            최근 3년간 걸어온 길을 확인하실 수 있습니다.<br/>
-          </p>
-          <p>
-            <li><a href="roadmap.html" title="앞으로 나아갈 길">Own RoadMap</a></li>
-            앞으로의 계획을 확인하실 수 있습니다.<br/>
-          </p>
-          <p>
-            <li><a href="contact.html" title="연락수단">Contact</a></li>
-            연락수단을 남겨두었습니다.<br/>
-          </p>
-        </ul>
+      <ul>
+        {lis}
+      </ul>
   </nav>
 
   );
 }
 
-function Article(){
+function FooterArticle(){
   return(
-    <section className="App-MainArticle">
+    <section className="App-FooterArticle">
       <h3 id="title">종합 결과물</h3>
         <ul>
           <p>
@@ -59,116 +57,87 @@ function Article(){
 
 
 
-// function daynight(props){
-
-//   const body = {
-//     setColor:function(color) {
-//       document.querySelector('body').style.color = color;
-//     },
-//     setbackgroundColor:function(color) {
-//       document.querySelector('body').style.backgroundColor = color;
-//     }
-//   };
-  
-//   let important = {
-//     setColor:function(color) {
-//       var important_color = document.querySelectorAll('#important');
-//       var i = 0;
-//       while(true){
-//         important_color[i].style.color = color;
-//         i++;
-//         if (i >= important_color.length){
-//           i = 0;
-//           break;
-//         }
-//       }
-//     },
-//     setbackgroundColor:function(color) {
-//       var important_bgcolor = document.qeurySelectorAll('#important');
-//       var i = 0;
-//       while(true){
-//         important_bgcolor[i].style.backgroundColor = color;
-//         i++;
-//         if (i >= important_bgcolor.length){
-//           i = 0;
-//           break;
-//         }
-//       }
-//     }
-//   };
-  
-//   let title = {
-//     setColor:function(color) {
-//       var title_color = document.querySelectorAll('#title');
-//       var i = 0;
-//       while(true){
-//         title_color[i].style.color = color;
-//         i++;
-//         if (i >= title_color.length){
-//           i = 0;
-//           break;
-//         }
-//       }
-//     },
-//     setbackgroundColor:function(color) {
-//       var title_bgcolor = document.qeurySelectorAll('#title');
-//       var i = 0;
-//       while(true){
-//         title_bgcolor[i].style.backgroundColor = color;
-//         i++;
-//         if (i >= title_bgcolor.length){
-//           i = 0;
-//           break;
-//         }
-//       }
-//     }
-//   };
-  
-
-//     if(props.value === 'Day Mode'){
-//       props.value = 'Night Mode';
-
-//       body.setColor('black');
-//       body.setbackgroundColor('white');
-//       title.setColor('white');
-//       title.setbackgroundColor('grey');
-//       important.setColor('indianred');
-//     }
-
-//     else                        {
-//       props.value = 'Day Mode';
-
-//       body.setColor('white');
-//       body.setbackgroundColor('black');
-//       title.setColor('yellow');
-//       title.setbackgroundColor('black');
-//       important.setColor('green');
-//     }
-// }
-
-
 function App() {
   const [mode, setMode] = useState('WELCOME');
-  const [choice, setChoice] = useState('');
+  const [id, setId] = useState('');
+  const navcontents = [
+    { id: 0, title: 'About Me' ,  body:"나에 대한 소개글",                          
+      description: "Fabaneon이라는 사람의 이야기를 들려드리겠습니다."},
 
-  let headerArticle, navArticle, mainArticle = null;
+    { id: 1, title: 'Career'  ,  body:"최근 3년간 걸어온 길을 확인하실 수 있습니다.", 
+      description: "년도별로 참여했던 주요 프로젝트와 직책을 열람해보세요."},
 
-  headerArticle = <Header onChangeMode={()=>{
-    setMode('WELCOME');
-  }}></Header>
-  navArticle = <Nav onChangeMode={()=>{
-    setMode('READ');}}></Nav>
-  mainArticle = <Article></Article>
+    { id: 2, title: 'RoadMap' ,  body:"앞으로 나아갈 길", 
+      description: "앞으로 학습해 나갈 로드맵을 확인하실 수 있습니다."},
 
+    { id: 3, title: 'Contact' ,  body:"연락수단",        
+     description: "모든 협업과 건설적인 교류 언제든 환영합니다."},
+     
+    { id: 4, title: 'Return to Main' ,  body:"메인 페이지",        
+    description: "첫 페이지로 돌아갑니다.."}  
+  ];
+
+  let headerArticle, navArticle, mainArticle, optionalfunction= null;
+
+
+  if(mode === 'WELCOME'){
+    console.log("mode : " + mode);
+    headerArticle = <Header
+    title = "Welcome to my React-Profile!"
+    subtitle = "환영합니다. 아래 목차를 통해서 절 소개해드리겠습니다 :)"
+    extra = "빠르지만 서두르진 말고.. 조금씩 서로에 대해 알아보자구요."
+    
+    ></Header>
+    navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+      setMode('READ');setId(id);}}></Nav>
+    mainArticle = null;
+    optionalfunction = <Daynighthandler value = 'Return'></Daynighthandler>
+  }
+  else if(mode === 'READ'){
+    console.log("mode : " + mode);
+
+    if(id === 0){
+      headerArticle = <Header 
+      title = {navcontents[id].title}
+      subtitle = {navcontents[id].body}
+      extra = {navcontents[id].description}
+      >
+      </Header>
+      navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+        setMode('READ');setId(id);}}></Nav>
+      mainArticle = <About></About>
+      optionalfunction = <Daynighthandler></Daynighthandler>
+    }
+    else if(id === 1){
+      headerArticle = <Header 
+      title = {navcontents[id].title}
+      subtitle = {navcontents[id].body}
+      extra = {navcontents[id].description}
+      >
+      </Header>
+      navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+        setMode('READ');setId(id);}}></Nav>
+      mainArticle = <Career></Career>
+      optionalfunction = <Daynighthandler></Daynighthandler>
+
+
+    }
+    else if(id === 2){}
+    else if(id === 3){}
+    else if(id === 4){setMode('WELCOME');}
+    
+  }
+  console.log("mode : " + mode + "id : " + id);
+  console.log(optionalfunction);
   return (
     <div className="App">
       {headerArticle}
-      {/* <input type="button" value="Night Mode" onClick={daynight(this)}/> */}
       {navArticle}
+      {optionalfunction}
       <main>
-      
-         {mainArticle}
+      {mainArticle}
       </main>
+      <FooterArticle></FooterArticle>
     </div>
   );
 }
