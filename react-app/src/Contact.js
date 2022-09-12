@@ -8,7 +8,7 @@ function Contact(){
             <article class="contact">
     
               <figure>
-                <img src="/img/business_card.png" alt="명함"/>
+                <img src="img/business_card.png" alt="명함"/>
               </figure>
     
               <p>

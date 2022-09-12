@@ -8,7 +8,7 @@ function About(){
         <div className="App-Article-About-Profile">
 
          <figure>
-            <img src="/img/fabaneon.jpg" alt=""/>
+            <img src="img/fabaneon.jpg" alt=""/>
             </figure>
 
          <article className="App-Article-About-Profile-description">
@@ -31,7 +31,7 @@ function About(){
               <h2 id ="important"><a  target="_blank" rel="noreferrer" href="https://ko.wikipedia.org/wiki/%EC%83%81%EB%8C%80%EC%A3%BC%EC%9D%98" title="위키피디아 | 상대주의 정의">
                 상대주의적</a> 사고회로</h2> <br/>
               <figure>
-                <img src="\img\growup.jpg" width="400"alt="growup"/>
+                <img src="img\growup.jpg" width="400"alt="growup"/>
               </figure>
               <p>
                 전 과거부터 지금까지 나자신을 성장시키는것이라면, [경험, 지식..] 그 무엇이든 상관없이 달려들었던 사람이였습니다. <br/>
@@ -60,7 +60,7 @@ function About(){
             <hr/>
               <h2 id ="important">내면 분석가</h2> <br/>
               <figure>
-                <img src="/img/innerthinking.jpg" width="400"alt="innerthinking"/>
+                <img src="img/innerthinking.jpg" width="400"alt="innerthinking"/>
               </figure>
               <p>
                 전 매일밤 <span id ="important"><u>머릿속의 세계</u></span>를 탐험합니다. <br/>
