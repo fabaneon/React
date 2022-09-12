@@ -1,59 +1,8 @@
 a{
     color:darkcyan;
   }
-  .main{
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows:100%;
-    border-width:5px;
-    border-color:cadetblue;
-    border-style: solid;
-
-  }
-  .NavBtn{
-    height: 100px;
-    width: 100%;
-    margin: 1px;
-    border-width:1px;
-    border-color:red;
-    border-style: solid;
-
-}
-.App-Article-About-Profile{
-  text-align: center;
-  
-  display:block;
-
-}
-  .App-header{
-    width: 100%;
-    height: 180px;
-    text-align: center;
-    background-color:beige;
-    display:block;
-
-  }
-  .Navigator{
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    width: 100%;
-    height: 515px;
-    
-    
-}
-.Article{
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  border-width:1px;
-  border-color:rgb(109, 203, 207);
-  border-style: solid;
-
-}
-  
   .title{
-    
+    text-align:center;
     color: white;
     background-color: darkgrey;
   }
@@ -66,19 +15,99 @@ a{
   }
   
 
+
+.App-header{
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  border-right-width:0px;
+  border-left-width:0px;
+  border-top-width:1px;
+  border-bottom-width:1px;
+  border-color:black;
+  border-style: solid;
+  display:block;
+  
+}
+.Total{
+  display:grid;
+  place-items: center;
+  min-height: 100vh;
+  margin-bottom:20px;
+  margin-top:20px;
+}
+  .App-Main{
+    width:1000px;
+     height:100%;
+    display:grid;
+
+    grid-template-columns: 30% 70%;
+    grid-template-rows:100%;
+
+    border-width:5px;
+    border-color:cadetblue;
+    border-style: solid;
+
+  }
+
+.LeftSide{
+  width:auto;
+  height:800px;
+  padding:5px;
+  border-width:1px;
+  border-color:navy;
+  border-style: solid;
+}
+.RightSide{
+  width:auto;
+  height:auto;
+  padding:5px;
+  border-width:1px;
+  border-color:cadetblue;
+  border-style: solid;
+}
+
+.Navigator{
+  padding: 5px;
+  
+  
+}
+  .NavBtn{
+    height: 100px;
+    width: 100%;
+    margin: 1px;
+    border-width:1px;
+    border-color:red;
+    border-style: solid;
+    font-size: 16px;
+
+}
+.NavDescription{
+  font-size: 10px;
+}
+.App-Article-About-Profile{
+  text-align: center;
+
+}
+
+.Article{
+  text-align: center;
+  border-width:1px;
+  border-color:rgb(109, 203, 207);
+  border-style: solid;
+
+}
+  
+ 
     .FooterOption{
-      border-width:5px;
+      border-width:3px;
       border-color:rgb(124, 155, 156);
       border-style: solid;
     }
 
-/* .DaynightHandler{
-  border-width:0.5px;
-  border-color:rgb(38, 36, 140);
-  border-style: solid;
-  background-color: darkorange;
-  color: beige;
-} */
+.DaynightHandler{
+  place-items: left;
+}
 /* 
     .App-Article-About-Profile{
         border-width:3px;

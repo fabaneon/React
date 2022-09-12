@@ -3,10 +3,11 @@ import {useState} from 'react'
 
 function Daynighthandler(props){
   const [mode, setMode] = useState('Night Mode');
+
   const title_colors = document.querySelectorAll('.title');
   const important_colors = document.querySelectorAll('.important');
   const atag_colors = document.querySelectorAll('a');
-  const app_headers_colors = document.querySelectorAll('.App-header');
+  const app_headers_colors = document.querySelector('.App-header');
   const navigator_colors = document.querySelectorAll('.Navigator');
 
 const atag = {
@@ -54,15 +55,7 @@ const navigator = {
 const app_headers = {
   setbackgroundColor:function(color) {
     if(app_headers_colors.length > 0){
-      var i = 0;
-      while(true){
-        app_headers_colors[i].style.backgroundColor = color;
-        i++;
-        if (i > app_headers_colors.length){
-          i = 0;
-          break;
-        }
-      }  
+      app_headers_colors.style.backgroundColor = color;
     }
   }
 };
@@ -140,6 +133,8 @@ let title = {
     }
   }
 };
+console.log(app_headers_colors);
+
     return(       
     <div >
       <li>      
@@ -165,12 +160,13 @@ let title = {
    
               }
               if(app_headers){
-                app_headers.setbackgroundColor('beige');                
+                app_headers.setbackgroundColor('antiquewhite');        
+              
               }
-              navigator.style.setbackgroundColor('bisque');
+              navigator.setbackgroundColor('bisque');
             }
           
-            else if(mode === 'Night Mode'){
+            else {
               setMode('Day Mode');
               if(body){
                 body.setColor('white');
@@ -191,7 +187,7 @@ let title = {
               if(app_headers){
                 app_headers.setbackgroundColor('black');       
               }
-              navigator.style.setbackgroundColor('Navy');
+              navigator.setbackgroundColor('Navy');
 
           }
         }}/>

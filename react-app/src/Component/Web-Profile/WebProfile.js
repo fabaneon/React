@@ -32,7 +32,7 @@ function Nav(props){
     onClick={(event)=>{
       event.preventDefault();
       props.onChangeMode(Number(event.target.id));
-    }}>{a.title}</a><br/>{a.description}</div>);
+    }}>{a.title}</a><br/><span className="NavDescription">{a.description}</span></div>);
   }
 
   return(
@@ -166,16 +166,21 @@ function App() {
   return (
     <div className="App">
       {headerArticle}
-      <div className="main">
-
-      
-      <div className="Navigator">
-         {navArticle}
-         {optionalfunction}
-      </div>
-      <div className="Article">
-       {mainArticle}
-      </div>
+      <div className="Total">
+        <div className="App-Main">
+          <div className="LeftSide">
+              <div className="Navigator">
+                {navArticle}
+                {optionalfunction}
+              </div>
+          </div>
+          <div className="RightSide">
+              <div className="Article">
+                {mainArticle}
+              </div>
+          </div>
+          
+        </div>
       </div>
       <FooterArticle></FooterArticle>
     </div>

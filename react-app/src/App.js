@@ -64,7 +64,8 @@ function App(){
 
   return(
      <div className="App">
-        <div className="App-Main">
+        <div className="display">
+        <Daynighthandler></Daynighthandler>
         {ArticleContents}
         {Navi}
         </div>
@@ -74,7 +75,7 @@ function App(){
       <br/>
         <div className="FooterOption">
         {button}
-        <br/><Daynighthandler></Daynighthandler>
+        <br/>
         </div>
       <footer>
         <h5>학습 시작일 : 2022-09-04</h5>  
