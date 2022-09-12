@@ -28,7 +28,7 @@ function Header(props){
             event.preventDefault();
             props.onChangeMode();
           }}>{props.title}</a></u></h1>
-          <img src="img/logo192.png" alt="logo"/>
+          <img width="150px" height="150px"src="img/logo192.png" alt="logo"/>
         </header>
       );
     }
@@ -179,7 +179,7 @@ function CRUD(){
     return(
       <div>
         <Header title = "생활관 명단 기능" onChangeMode={()=>{setMode('Welcome');}}></Header>
-        <div className="Navigator">
+        <div >
         <Nav links = {links} onChangeMode={function(id){
           setMode('Read');setId(id)}}></Nav>
         <li><a

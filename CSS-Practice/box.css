@@ -1,0 +1,88 @@
+
+.App-Header{
+    width:100%;
+    height:200px;
+    border-width:3px;
+    border-color:cadetblue;
+    border-style: solid;
+    text-align: center;
+    display:block;
+    font-size: 30px;
+}
+
+p, li, span{
+  font-size:12px;
+  width:600px;
+}
+.App-Total{
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin-bottom:20px;
+  margin-top:20px;
+}
+.App-Main{
+  width:1000px;
+  height:100%;
+  display:grid;
+
+  grid-template-columns: 300px 70%;
+  grid-template-rows: 100%;
+  border-width: 3px;
+  border-style: double;
+  border-color: red;
+
+
+}
+.LeftSide{
+  width:auto;
+  height:800px;
+  padding:5px;
+  border-width:1px;
+  border-color:navy;
+  border-style: solid;
+}
+.RightSide{
+  width:auto;
+  height:auto;
+  padding:5px;
+  border-width:1px;
+  border-color:cadetblue;
+  border-style: solid;
+}
+
+.App-Profile{
+  font-size: 12px;
+
+  border-width:1px;
+  border-color:black;
+  border-style: solid;
+  padding: 5px;
+}
+
+.App-Navigator{
+
+    border-width:1px;
+    border-color:blue;
+    border-style: solid;
+    padding: 5px;
+
+}
+
+
+    .App-Article-About-Mainhead{
+        border-width:1px;
+        border-color:yellow;
+        border-style: solid;
+
+    }
+
+
+    .App-FooterArticle{
+        border-width:3px;
+        border-color:red;
+        border-style: solid;
+
+
+
+    }
