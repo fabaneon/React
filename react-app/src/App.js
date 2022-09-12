@@ -1,13 +1,13 @@
 import React,{useState} from 'react'
 import './App.css';
-import CRUD from './CRUD'
-import Webprofile from './WebProfile';
+import CRUD from './Component/CRUD/CRUD'
+import Webprofile from './Component/Web-Profile/WebProfile';
 import Daynighthandler from './function/daynighthandler';
 
 function MainArticle(props){
 
   return(
-    <div>
+    <div className="App-header">
       <h1 id="title">{props.title}</h1>
       <h3>{props.subtitle}</h3>
       {props.body}
@@ -65,8 +65,9 @@ function App(){
 
   return(
      <div className="App">
-      
+        <div className="App-Main">
         {ArticleContents}
+        </div>
         <br/>
         {Navi}
       

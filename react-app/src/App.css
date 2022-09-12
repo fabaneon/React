@@ -2,7 +2,16 @@ a{
     color:darkcyan;
     background-color:'';
   }
+  .App-header{
+    text-align: center;
+
+
+  }
+  .App-Main{
+    
+  }
   #title{
+    
     color: white;
     background-color: darkgrey;
   }

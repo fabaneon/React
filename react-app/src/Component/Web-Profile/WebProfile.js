@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import './App.css';
+// import './App.css';
 import About from './About';
 import Career from './Career';
 import Roadmap from './Roadmap';

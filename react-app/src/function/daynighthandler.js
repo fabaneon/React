@@ -2,10 +2,12 @@ import {useState} from 'react'
 
 
 function Daynighthandler(props){
-    const [mode, setMode] = useState('Night Mode');
+  const [mode, setMode] = useState('Night Mode');
     const title_colors = document.querySelectorAll('#title');
-const important_colors = document.querySelectorAll('#important');
-const atag_colors = document.querySelectorAll('a');
+  const important_colors = document.querySelectorAll('#important');
+  const atag_colors = document.querySelectorAll('a');
+  const app_headers_colors = document.querySelectorAll('.App-header');
+
 const atag = {
   setColor:function(color) {
 
@@ -33,7 +35,21 @@ const atag = {
           }
   }
 }
-
+const app_headers = {
+  setbackgroundColor:function(color) {
+    if(app_headers_colors.length > 0){
+      var i = 0;
+      while(app_headers_colors.length){
+        app_headers_colors[i].style.backgroundColor = color;
+        i++;
+        if (i > app_headers_colors.length){
+          i = 0;
+          break;
+        }
+      }  
+    }
+  }
+};
 
 const body = {
   setColor:function(color) {
@@ -46,54 +62,65 @@ const body = {
 
 let important = {
   setColor:function(color) {
-    
-    var i = 0;
-    while(true){
-      important_colors[i].style.color = color;
-      i++;
-      if (i >= important_colors.length){
-        i = 0;
-        break;
+    if(important_colors.length > 0){
+      var i = 0;
+      while(true){
+        important_colors[i].style.color = color;
+        i++;
+        if (i > important_colors.length){
+          i = 0;
+          break;
+        }
       }
+
     }
+
   },
   setbackgroundColor:function(color) {
-    var i = 0;
-    while(true){
-      important_colors[i].style.backgroundColor = color;
-      i++;
-      if (i >= important_colors.length){
-        i = 0;
-        break;
+
+    if(important_colors.length > 0){
+      var i = 0;
+      while(true){
+        important_colors[i].style.backgroundColor = color;
+        i++;
+        if (i >= important_colors.length){
+          i = 0;
+          break;
+        }
       }
     }
+
   }
 };
 
 let title = {
       
   setColor:function(color) {
-    
-    var i = 0;
-    while(true){
-      title_colors[i].style.color = color;
-      i++;
-      if (i >= title_colors.length){
-        i = 0;
-        break;
+    if(title_colors.length > 0){
+      var i = 0;
+      while(true){
+        title_colors[i].style.color = color;
+        i++;
+        if (i >= title_colors.length){
+          i = 0;
+          break;
+        }
       }
+  
     }
   },
   setbackgroundColor:function(color) {
-
-    var i = 0;
-    while(true){
-      title_colors[i].style.backgroundColor = color;
-      i++;
-      if (i >= title_colors.length){
-        i = 0;
-        break;
+    if(title_colors.length > 0){
+      var i = 0;
+      while(true){
+        title_colors[i].style.backgroundColor = color;
+        i++;
+        if (i >= title_colors.length){
+          i = 0;
+          break;
+        }
       }
+  
     }
   }
 };
@@ -106,28 +133,49 @@ let title = {
             console.log(mode);
             if(mode === 'Day Mode'){
               setMode('Night Mode');
-          
-              body.setColor('black');
-              body.setbackgroundColor('white');
-              title.setColor('white');
-              title.setbackgroundColor('darkgrey');
-              important.setColor('indianred');
-              atag.setColor('darkcyan');
-              atag.setbackgroundColor('');
-
+              if(body){
+                body.setColor('black');
+                body.setbackgroundColor('white');  
+              }
+              if(title){
+                title.setColor('white');
+                title.setbackgroundColor('darkgrey');
+              }
+              if(important){
+                important.setColor('indianred');
+                
+              }
+              if(atag){
+                atag.setColor('darkcyan');
+                atag.setbackgroundColor('');                  
+              }
+              if(app_headers){
+                app_headers.setbackgroundColor('beige');                
+              }
             }
           
             else                        {
               setMode('Day Mode');
           
-              body.setColor('white');
-              body.setbackgroundColor('black');
-              title.setColor('yellow');
-              title.setbackgroundColor('navy');
-              important.setColor('green');
-              atag.setColor('yellow');
-              atag.setbackgroundColor('black');
-
+              if(body){
+                body.setColor('white');
+                body.setbackgroundColor('black');  
+              }
+              if(title){
+                title.setColor('yellow');
+                title.setbackgroundColor('navy');
+              }
+              if(important){
+                important.setColor('green');
+                
+              }
+              if(atag){
+                atag.setColor('yellow');
+                atag.setbackgroundColor('black');                  
+              }
+              if(app_headers){
+                app_headers.setbackgroundColor('black');       
+              }
 
           }
         }}/>
