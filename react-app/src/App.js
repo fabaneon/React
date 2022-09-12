@@ -92,3 +92,4 @@ export default App;
 
 // 여태까지 만든 생성 추가  [ 수정과 삭제는 아직 미구현 ] 기능은 CRUD.JS 로 저장하여 불러와두었다.
 // 이제 새로운 기능들을 React로 만들어 이러한 형식으로 저장할것이며 점차 Web-App의 규모를 늘려가볼 생각이다.
+// 기존의 Web-Portfolio-Profile도 이곳으로 편입시켰다.
