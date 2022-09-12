@@ -99,38 +99,39 @@ let title = {
 };
     return(       
     <div className="DaynightHandler">
-   
-     <input type="button" value={mode} onClick={()=>{
-        console.log(mode);
-
+      <li>      
+      <input type="button" value={mode} onClick={()=>{
           console.log(mode);
-          if(mode === 'Day Mode'){
-            setMode('Night Mode');
-        
-            body.setColor('black');
-            body.setbackgroundColor('white');
-            title.setColor('white');
-            title.setbackgroundColor('darkgrey');
-            important.setColor('indianred');
-            atag.setColor('darkcyan');
-            atag.setbackgroundColor('');
+
+            console.log(mode);
+            if(mode === 'Day Mode'){
+              setMode('Night Mode');
+          
+              body.setColor('black');
+              body.setbackgroundColor('white');
+              title.setColor('white');
+              title.setbackgroundColor('darkgrey');
+              important.setColor('indianred');
+              atag.setColor('darkcyan');
+              atag.setbackgroundColor('');
+
+            }
+          
+            else                        {
+              setMode('Day Mode');
+          
+              body.setColor('white');
+              body.setbackgroundColor('black');
+              title.setColor('yellow');
+              title.setbackgroundColor('navy');
+              important.setColor('green');
+              atag.setColor('yellow');
+              atag.setbackgroundColor('black');
+
 
           }
-        
-          else                        {
-            setMode('Day Mode');
-        
-            body.setColor('white');
-            body.setbackgroundColor('black');
-            title.setColor('yellow');
-            title.setbackgroundColor('navy');
-            important.setColor('green');
-            atag.setColor('yellow');
-            atag.setbackgroundColor('black');
-
-
-        }
-       }}/>
+        }}/>
+      </li>
     </div>
 );
     }

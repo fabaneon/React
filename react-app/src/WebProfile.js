@@ -1,8 +1,12 @@
 import {useState} from 'react';
 import './App.css';
-import About from './About'
-import Career from './Career'
-import Daynighthandler from './function/daynighthandler';
+import About from './About';
+import Career from './Career';
+import Roadmap from './Roadmap';
+import Contact from './Contact';
+
+// import Daynighthandler from './function/daynighthandler';
+
 
 function Header(props){
 
@@ -93,7 +97,7 @@ function App() {
     navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
       setMode('READ');setId(id);}}></Nav>
     mainArticle = null;
-    optionalfunction = <Daynighthandler value = 'Return'></Daynighthandler>
+    
   }
   else if(mode === 'READ'){
     console.log("mode : " + mode);
@@ -108,7 +112,7 @@ function App() {
       navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
         setMode('READ');setId(id);}}></Nav>
       mainArticle = <About></About>
-      optionalfunction = <Daynighthandler></Daynighthandler>
+      
     }
     else if(id === 1){
       headerArticle = <Header 
@@ -120,12 +124,39 @@ function App() {
       navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
         setMode('READ');setId(id);}}></Nav>
       mainArticle = <Career></Career>
-      optionalfunction = <Daynighthandler></Daynighthandler>
+      
 
 
     }
-    else if(id === 2){}
-    else if(id === 3){}
+    else if(id === 2){
+
+      headerArticle = <Header 
+      title = {navcontents[id].title}
+      subtitle = {navcontents[id].body}
+      extra = {navcontents[id].description}
+      >
+      </Header>
+      navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+        setMode('READ');setId(id);}}></Nav>
+      mainArticle = <Roadmap></Roadmap>
+      
+
+
+    }
+    else if(id === 3){
+      headerArticle = <Header 
+      title = {navcontents[id].title}
+      subtitle = {navcontents[id].body}
+      extra = {navcontents[id].description}
+      >
+      </Header>
+      navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+        setMode('READ');setId(id);}}></Nav>
+      mainArticle = <Contact></Contact>
+      
+
+
+    }
     else if(id === 4){setMode('WELCOME');}
     
   }

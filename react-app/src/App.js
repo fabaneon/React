@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './App.css';
 import CRUD from './CRUD'
 import Webprofile from './WebProfile';
+import Daynighthandler from './function/daynighthandler';
 
 function MainArticle(props){
 
@@ -54,7 +55,8 @@ function App(){
     else if(project === 'WEBPROFILE'){
       ArticleContents = <Webprofile></Webprofile>
       Navi = null;
-      button = <li><button onClick={()=>{setMode('project-unselected');}}>처음으로</button></li>;
+      button = <div className="oprtionalBtn"><li><button onClick={()=>{setMode('project-unselected');}}>처음으로</button>
+      </li></div>;
     }
 
 
@@ -71,6 +73,8 @@ function App(){
       <br/>
       
         {button}
+        <br/><Daynighthandler></Daynighthandler>
+
       <footer>
         <h5>학습 시작일 : 2022-09-04</h5>  
       </footer> 

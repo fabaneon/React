@@ -4,7 +4,7 @@ function Career2020(){
     return(
      <div className = "App-Article-Career-2020">
       <figure>
-        <img src="img/2020.png" width="400"alt="growup"/>
+        <img src="/img/2020.png" width="400"alt="growup"/>
       </figure>
       <p>
         <ul>
@@ -36,7 +36,7 @@ function Career2021(){
     return(
      <div className = "App-Article-Career-2021">
              <figure>
-                <img src="img/2021.png" width="400"alt="growup"/>
+                <img src="/img/2021.png" width="400"alt="growup"/>
               </figure>
               <p>
 
@@ -76,7 +76,7 @@ function Career2022(){
     return(
      <div className = "App-Article-Career-2022">
               <figure>
-                <img src="img/2022.png" width="400"alt="growup"/>
+                <img src="/img/2022.png" width="400"alt="growup"/>
               </figure>
               <p>
 
@@ -107,7 +107,7 @@ function Student(){
                   <br/>
                   <li>2019 과학교육 종합 성과발표회 - 학생 과제연구 발표대회 3위</li>
                   <figure>
-                    <img src="img/2019_Highschool.png" width="600"alt="growup"/>
+                    <img src="/img/2019_Highschool.png" width="600"alt="growup"/>
                   </figure>
                   <br/>
                 </ul>

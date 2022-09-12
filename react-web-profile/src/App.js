@@ -59,7 +59,7 @@ function FooterArticle(){
 
 
 
-function App() {
+function Webprofile() {
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState('');
   const navcontents = [
@@ -124,15 +124,42 @@ function App() {
 
 
     }
-    else if(id === 2){}
-    else if(id === 3){}
+    else if(id === 2){
+
+      headerArticle = <Header 
+      title = {navcontents[id].title}
+      subtitle = {navcontents[id].body}
+      extra = {navcontents[id].description}
+      >
+      </Header>
+      navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+        setMode('READ');setId(id);}}></Nav>
+      mainArticle = <Roadmap></Roadmap>
+      optionalfunction = <Daynighthandler></Daynighthandler>
+
+
+    }
+    else if(id === 3){
+      headerArticle = <Header 
+      title = {navcontents[id].title}
+      subtitle = {navcontents[id].body}
+      extra = {navcontents[id].description}
+      >
+      </Header>
+      navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
+        setMode('READ');setId(id);}}></Nav>
+      mainArticle = <Contact></Contact>
+      optionalfunction = <Daynighthandler></Daynighthandler>
+
+
+    }
     else if(id === 4){setMode('WELCOME');}
     
   }
   console.log("mode : " + mode + "id : " + id);
   console.log(optionalfunction);
   return (
-    <div className="App">
+    <div className="Webprofile">
       {headerArticle}
       {navArticle}
       {optionalfunction}
@@ -144,4 +171,4 @@ function App() {
   );
 }
 
-export default App;
+export default Webprofile;
