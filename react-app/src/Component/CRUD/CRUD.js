@@ -5,7 +5,7 @@ import {useState} from 'react';
 function Article(props){
   
   return(
-    <article>
+    <article >
         <h2>{props.title}</h2>
         {props.body}
     </article>
@@ -23,8 +23,8 @@ function Article(props){
 
 function Header(props){
       return(
-        <header>
-          <h1><u><a href="/" onClick={(event)=>{
+        <header className="App-header">
+          <h1 className="title"><u><a href="/" onClick={(event)=>{
             event.preventDefault();
             props.onChangeMode();
           }}>{props.title}</a></u></h1>
@@ -179,6 +179,7 @@ function CRUD(){
     return(
       <div>
         <Header title = "생활관 명단 기능" onChangeMode={()=>{setMode('Welcome');}}></Header>
+        <div className="Navigator">
         <Nav links = {links} onChangeMode={function(id){
           setMode('Read');setId(id)}}></Nav>
         <li><a
@@ -187,8 +188,10 @@ function CRUD(){
            event.preventDefault();
            setMode('Create');
           }}>Create</a></li>
+        </div>
+        <div className="MainArticle">
         {ArticleContents}
-
+        </div>
       </div>
     );
 }

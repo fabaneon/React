@@ -2,7 +2,7 @@ function Contact(){
     return(
        
 
-        <div class="main">
+        <div class="App-Article">
           <section>
     
             <article class="contact">

@@ -3,10 +3,11 @@ import {useState} from 'react'
 
 function Daynighthandler(props){
   const [mode, setMode] = useState('Night Mode');
-    const title_colors = document.querySelectorAll('#title');
-  const important_colors = document.querySelectorAll('#important');
+  const title_colors = document.querySelectorAll('.title');
+  const important_colors = document.querySelectorAll('.important');
   const atag_colors = document.querySelectorAll('a');
   const app_headers_colors = document.querySelectorAll('.App-header');
+  const navigator_colors = document.querySelectorAll('.Navigator');
 
 const atag = {
   setColor:function(color) {
@@ -35,11 +36,26 @@ const atag = {
           }
   }
 }
+const navigator = {
+  setbackgroundColor:function(color) {
+    if(navigator_colors.length > 0){
+      var i = 0;
+      while(true){
+        navigator_colors[i].style.backgroundColor = color;
+        i++;
+        if (i > true){
+          i = 0;
+          break;
+        }
+      }  
+    }
+  }
+};
 const app_headers = {
   setbackgroundColor:function(color) {
     if(app_headers_colors.length > 0){
       var i = 0;
-      while(app_headers_colors.length){
+      while(true){
         app_headers_colors[i].style.backgroundColor = color;
         i++;
         if (i > app_headers_colors.length){
@@ -125,12 +141,11 @@ let title = {
   }
 };
     return(       
-    <div className="DaynightHandler">
+    <div >
       <li>      
-      <input type="button" value={mode} onClick={()=>{
+      <input className="DaynightHandler" type="button" value={mode} onClick={()=>{
           console.log(mode);
 
-            console.log(mode);
             if(mode === 'Day Mode'){
               setMode('Night Mode');
               if(body){
@@ -147,16 +162,16 @@ let title = {
               }
               if(atag){
                 atag.setColor('darkcyan');
-                atag.setbackgroundColor('');                  
+   
               }
               if(app_headers){
                 app_headers.setbackgroundColor('beige');                
               }
+              navigator.style.setbackgroundColor('bisque');
             }
           
-            else                        {
+            else if(mode === 'Night Mode'){
               setMode('Day Mode');
-          
               if(body){
                 body.setColor('white');
                 body.setbackgroundColor('black');  
@@ -171,11 +186,12 @@ let title = {
               }
               if(atag){
                 atag.setColor('yellow');
-                atag.setbackgroundColor('black');                  
+                
               }
               if(app_headers){
                 app_headers.setbackgroundColor('black');       
               }
+              navigator.style.setbackgroundColor('Navy');
 
           }
         }}/>

@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import './App.css';
 import CRUD from './Component/CRUD/CRUD'
 import Webprofile from './Component/Web-Profile/WebProfile';
 import Daynighthandler from './function/daynighthandler';
@@ -7,8 +6,8 @@ import Daynighthandler from './function/daynighthandler';
 function MainArticle(props){
 
   return(
-    <div className="App-header">
-      <h1 id="title">{props.title}</h1>
+    <div >
+      <h1 className="title">{props.title}</h1>
       <h3>{props.subtitle}</h3>
       {props.body}
     </div>
@@ -18,7 +17,7 @@ function MainArticle(props){
 function MainNav(props){
 
   return(
-    <div>
+    <div >
       <li><a title="2022-09-04 ~ 2022-09-10" href="/CRUD/" onClick={(event)=>{
         event.preventDefault();
         props.onChangeMode("CRUD");
@@ -67,15 +66,16 @@ function App(){
      <div className="App">
         <div className="App-Main">
         {ArticleContents}
+        {Navi}
         </div>
         <br/>
-        {Navi}
+        
       
       <br/>
-      
+        <div className="FooterOption">
         {button}
         <br/><Daynighthandler></Daynighthandler>
-
+        </div>
       <footer>
         <h5>학습 시작일 : 2022-09-04</h5>  
       </footer> 

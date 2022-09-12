@@ -1,5 +1,6 @@
 import {useState} from 'react';
-// import './App.css';
+import '../../App.css';
+import Profile from './Profile'
 import About from './About';
 import Career from './Career';
 import Roadmap from './Roadmap';
@@ -13,7 +14,7 @@ function Header(props){
   
   return(
     <header className="App-header">
-        <h1 id = "title"><u>{props.title}</u></h1>
+        <h1 className = "title"><u>{props.title}</u></h1>
         <h3>{props.subtitle}</h3>
         <h5>{props.extra}</h5>
     </header>
@@ -27,18 +28,18 @@ function Nav(props){
   const lis = [];
   for (let i=0; i<props.navcontents.length; i++){
     let a = props.navcontents[i];
-    lis.push(<li key={a.id}><a id={a.id}href={'/read/' + a.title} title={a.body} 
+    lis.push(<div className="NavBtn"><a id={a.id}href={'/read/' + a.title} title={a.body} 
     onClick={(event)=>{
       event.preventDefault();
       props.onChangeMode(Number(event.target.id));
-    }}>{a.title}</a><br/>{a.description}</li>);
+    }}>{a.title}</a><br/>{a.description}</div>);
   }
 
   return(
   <nav className="App-nav">
-      <ul>
+      
         {lis}
-      </ul>
+      
   </nav>
 
   );
@@ -47,11 +48,11 @@ function Nav(props){
 function FooterArticle(){
   return(
     <section className="App-FooterArticle">
-      <h3 id="title">종합 결과물</h3>
+      <h3 className="title">종합 결과물</h3>
         <ul>
           <p>
             본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
-            <span id="notice">+2022-09-10 작성</span> <br/>
+            <span className="notice">+2022-09-10 작성</span> <br/>
             <li><a target="_blank" rel="noreferrer" href="https://fabaneon.github.io/Portfolio-Profile_Website/">
               이전 HTML 작업물</a></li>
           </p>
@@ -96,7 +97,7 @@ function App() {
     ></Header>
     navArticle = <Nav navcontents = {navcontents} onChangeMode={(id)=>{
       setMode('READ');setId(id);}}></Nav>
-    mainArticle = null;
+    mainArticle = <Profile></Profile>;
     
   }
   else if(mode === 'READ'){
@@ -165,11 +166,17 @@ function App() {
   return (
     <div className="App">
       {headerArticle}
-      {navArticle}
-      {optionalfunction}
-      <main>
-      {mainArticle}
-      </main>
+      <div className="main">
+
+      
+      <div className="Navigator">
+         {navArticle}
+         {optionalfunction}
+      </div>
+      <div className="Article">
+       {mainArticle}
+      </div>
+      </div>
       <FooterArticle></FooterArticle>
     </div>
   );

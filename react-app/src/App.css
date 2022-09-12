@@ -1,25 +1,102 @@
 a{
     color:darkcyan;
-    background-color:'';
   }
+  .main{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows:100%;
+    border-width:5px;
+    border-color:cadetblue;
+    border-style: solid;
+
+  }
+  .NavBtn{
+    height: 100px;
+    width: 100%;
+    margin: 1px;
+    border-width:1px;
+    border-color:red;
+    border-style: solid;
+
+}
+.App-Article-About-Profile{
+  text-align: center;
+  
+  display:block;
+
+}
   .App-header{
+    width: 100%;
+    height: 180px;
     text-align: center;
-
+    background-color:beige;
+    display:block;
 
   }
-  .App-Main{
+  .Navigator{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    width: 100%;
+    height: 515px;
     
-  }
-  #title{
+    
+}
+.Article{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border-width:1px;
+  border-color:rgb(109, 203, 207);
+  border-style: solid;
+
+}
+  
+  .title{
     
     color: white;
     background-color: darkgrey;
   }
-  #important{
+  .important{
+
     color: indianred;
   }
-  #notice{
+  .notice{
     color: red;
   }
+  
+
+    .FooterOption{
+      border-width:5px;
+      border-color:rgb(124, 155, 156);
+      border-style: solid;
+    }
+
+/* .DaynightHandler{
+  border-width:0.5px;
+  border-color:rgb(38, 36, 140);
+  border-style: solid;
+  background-color: darkorange;
+  color: beige;
+} */
+/* 
+    .App-Article-About-Profile{
+        border-width:3px;
+        border-color:red;
+        border-style: solid;
+
+
+
+    }
+    .App-Article-About-Mainhead{
+        border-width:3px;
+        border-color:navy;
+        border-style: solid;
+
+
+
+    } */
+
+
   
   

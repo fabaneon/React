@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 function Career2020(){
     return(
-     <div className = "App-Article-Career-2020">
+     <div className = "App-Article-Career">
       <figure>
         <img src="img/2020.png" width="400"alt="growup"/>
       </figure>
@@ -34,7 +34,7 @@ function Career2020(){
 
 function Career2021(){
     return(
-     <div className = "App-Article-Career-2021">
+     <div className = "App-Article-Career">
              <figure>
                 <img src="img/2021.png" width="400"alt="growup"/>
               </figure>
@@ -74,7 +74,7 @@ function Career2021(){
 
 function Career2022(){
     return(
-     <div className = "App-Article-Career-2022">
+     <div className = "App-Article-Career">
               <figure>
                 <img src="img/2022.png" width="400"alt="growup"/>
               </figure>
@@ -121,60 +121,30 @@ function Student(){
 function CareerNav(props){
     return(
         <div className="App-Article-Career-Nav">
-          <form>
-            <table border = "2">
-              <thead>
-                <tr>
-                    <td>
-                        연혁표
-                    </td>
-                </tr>
-              </thead>
-                <tbody>
-                  <tr>
-                    <td>2020년도</td>
-                    <td>
+          
                       <button year = '2020'type="button" className="navyBtn" onClick={(event)=>{
                         event.preventDefault();
                         props.onChangeMode('2020');
                       }}>
-                      열람하기</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021년도</td>
-                    <td>
+                      2020</button>
+              
                       <button year = '2021' type="button"  className="navyBtn" onClick={(event)=>{
                         event.preventDefault();
                         props.onChangeMode('2021');
                       }}>
-                      열람하기</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2022년도</td>
-                    <td>
+                      2021</button>
+                   
                       <button year = '2022' type="button" className="navyBtn" onClick={(event)=>{
                         event.preventDefault();
                         props.onChangeMode('2022');
                       }}>
-                      열람하기</button><br/>
-                    </td>
-                  </tr>
-              </tbody>
-              <tfoot>
-              <tr>
-                <td colSpan="3">
+                      2022</button>
                     <button year = 'student' type="button" className="navyBtn" onClick={(event)=>{
                         event.preventDefault();
                         props.onChangeMode('student');
                     }}>
                     학창 시절 과제 연구물</button>
-                </td>
-              </tr>
-              </tfoot>
-            </table>
-          </form>
+                
         </div>
 
 
@@ -204,7 +174,7 @@ function Career(){
     
     
     return(
-        <div className="App-Article-Career">
+        <div className="App-Article">
             <CareerNav onChangeMode={(year)=>{
                 setYear(year);
                 console.log(year);
