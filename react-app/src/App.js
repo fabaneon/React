@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import CRUD from './Component/CRUD/CRUD'
 import Webprofile from './Component/Web-Profile/WebProfile';
-import Daynighthandler from './function/daynighthandler';
+import Daynighthandler from './function/js/daynighthandler';
+import Comment from './function/js/comment';
 
 function MainArticle(props){
 
@@ -73,12 +74,9 @@ function App(){
         
       
       <br/>
-        <div className="FooterOption">
-        {button}
-        <br/>
-        </div>
-      <footer>
-        <h5>학습 시작일 : 2022-09-04</h5>  
+      <footer className="FooterOption">
+          {button}
+          <Comment></Comment>
       </footer> 
     </div>
    

@@ -163,7 +163,7 @@ console.log(app_headers_colors);
                 app_headers.setbackgroundColor('antiquewhite');        
               
               }
-              navigator.setbackgroundColor('bisque');
+              // navigator.setbackgroundColor('bisque');
             }
           
             else {
@@ -187,7 +187,7 @@ console.log(app_headers_colors);
               if(app_headers){
                 app_headers.setbackgroundColor('black');       
               }
-              navigator.setbackgroundColor('Navy');
+              // navigator.setbackgroundColor('Navy');
 
           }
         }}/>
