@@ -7,7 +7,7 @@ import Comment from './function/js/comment';
 function MainArticle(props){
 
   return(
-    <div >
+    <div className="App-header">
       <h1 className="title">{props.title}</h1>
       <h3>{props.subtitle}</h3>
       {props.body}
@@ -50,13 +50,13 @@ function App(){
     if(project === 'CRUD'){
       ArticleContents = <CRUD></CRUD>
       Navi = null;
-      button = <li><button onClick={()=>{setMode('project-unselected');}}>처음으로</button></li>;
+      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>;
     }
     else if(project === 'WEBPROFILE'){
       ArticleContents = <Webprofile></Webprofile>
       Navi = null;
-      button = <div className="oprtionalBtn"><li><button onClick={()=>{setMode('project-unselected');}}>처음으로</button>
-      </li></div>;
+      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
+      ;
     }
 
 
@@ -65,11 +65,14 @@ function App(){
 
   return(
      <div className="App">
-        <div className="display">
-        <Daynighthandler></Daynighthandler>
+      <Daynighthandler></Daynighthandler>
+        <div className="MainOption">
         {ArticleContents}
+        
         {Navi}
         </div>
+       
+
         <br/>
         
       
