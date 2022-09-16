@@ -1,9 +1,6 @@
 .App{
-  display:grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto;
-
-
+  display:flex;
+  flex-direction: column;
 }
 
 .dispaly{
@@ -39,10 +36,10 @@ a{
   }
   
 
-
+.MainOption{
+  flex:3;
+}
 .App-header{
-  width: 100%;
-  height: 200px;
   text-align: center;
   border-right-width:0px;
   border-left-width:0px;
@@ -53,97 +50,97 @@ a{
   display:block;
   
 }
-.Total{
+.Container-App-Main{
   display:grid;
-  place-items: center;
-  min-height: 100vh;
-  margin-bottom:20px;
-  margin-top:20px;
+  grid-template-columns: auto;
+  grid-template-rows:auto;
+  place-content: center;
 }
-  .App-Main{
-    width:1000px;
-     height:100%;
-    display:grid;
+    .App-Main{
+      max-width: 1000px;
+      min-width:800px;
+      display:flex;
 
-    grid-template-columns: 30% 70%;
-    grid-template-rows:100%;
+    }
 
-    border-width:5px;
-    border-color:cadetblue;
-    border-style: solid;
+        .Navigator{
+          order:1;
+          flex:1;
+          width:100%;
+          height:100%;
+          max-width: 200px;
+          padding: 5px;
+          display: flex;
+          justify-content: center;
+          border-top: 1px solid rgb(19, 93, 139)
+        }
+          .App-nav{
+            width:200px;
+            height:240px;
+            flex:2;
+            position: fixed;
+            transform: translateX(-50px);
+            flex-direction: column;
+            justify-content: space-around;
+            border: 1px solid red;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+          }
+            .NavBtn{
+              margin: 2px;
+              margin-top:20px;
+              border-width:1px;
+              border-color:red;
+              border-style: solid;
+              font-size: 16px;
 
-  }
+          }
+        .Article{
+          order:2;
+          flex:3;
+          max-width: auto;
+          text-align: center;
+          border-width:1px;
+          border-color:rgb(109, 203, 207);
+          border-style: solid;
+          padding: 10vh;
 
-.LeftSide{
-  width:auto;
-  height:800px;
-  padding:5px;
-  border-width:1px;
-  border-color:navy;
-  border-style: solid;
-}
-.RightSide{
-  width:auto;
-  height:auto;
-  padding:5px;
-  border-width:1px;
-  border-color:cadetblue;
-  border-style: solid;
-  place-items: center;
-}
+        }
+        .Aside{
+          flex:1;
+          order:3;
 
-.Navigator{
-  padding: 5px;
-  
-  
-}
-  .NavBtn{
-    height: 100px;
-    width: 100%;
-    margin: 1px;
-    border-width:1px;
-    border-color:red;
-    border-style: solid;
-    font-size: 16px;
-
-}
-.NavDescription{
-  font-size: 10px;
-}
-.App-Article-About-Profile{
-  text-align: center;
-
-}
-
-.Article{
-  text-align: center;
-  border-width:1px;
-  border-color:rgb(109, 203, 207);
-  border-style: solid;
-
-}
-
+        }
  
     .FooterOption{
-      height: auto;
-      width: auto;
-      display:grid;
-      grid-template-columns: 100%;
-      grid-template-rows: auto auto;
+      flex:1;
+      display:flex;
+      flex-direction: column;
+      padding:2em;
       place-items: center;
-      
-      border-width:3px;
-      border-color:rgb(124, 155, 156);
-      border-style: solid;
       padding: 1px;
     }
+    #wrapper{
+      height: auto;
+      min-height: 100%;
+      padding-bottom: 200px;
+    }
+    .App-FooterArticle{
+      flex:1;
+      height:150px;
+      width:100%;
+      text-align: center;
+      color:white;
+      background-color:black;
+    }
 .ReturnToLobby{
-  display:inline;
+  order:1;
+  flex:1;
   width: auto;
-  place-items: left;
 }
 .DaynightHandler{
-  place-items: left;
+  place-items: flex-start;
 }
 /* 
     .App-Article-About-Profile{

@@ -31,6 +31,20 @@ function MainNav(props){
   );
 }
 
+function FooterArticle(){
+  return(
+    <div className="App-FooterArticle">
+      <h3 className="title">종합 결과물</h3>
+          <p>
+            본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
+            <span className="notice">+2022-09-10 작성</span> <br/>
+            <li><a target="_blank" rel="noreferrer" href="https://fabaneon.github.io/Portfolio-Profile_Website/">
+              이전 HTML 작업물</a></li>
+          </p>
+   </div>
+  );
+}
+
 function App(){
   const [mode, setMode] = useState('project-unselected');
   const [project, setProject] = useState('');
@@ -72,15 +86,11 @@ function App(){
         {Navi}
         </div>
        
-
-        <br/>
-        
-      
-      <br/>
       <footer className="FooterOption">
           {button}
           <Comment></Comment>
       </footer> 
+      <FooterArticle></FooterArticle>
     </div>
    
 

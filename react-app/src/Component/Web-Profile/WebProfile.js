@@ -32,7 +32,7 @@ function Nav(props){
     onClick={(event)=>{
       event.preventDefault();
       props.onChangeMode(Number(event.target.id));
-    }}>{a.title}</a><br/><span className="NavDescription">{a.description}</span></div>);
+    }}>{a.title}</a></div>);
   }
 
   return(
@@ -45,22 +45,6 @@ function Nav(props){
   );
 }
 
-function FooterArticle(){
-  return(
-    <section className="App-FooterArticle">
-      <h3 className="title">종합 결과물</h3>
-        <ul>
-          <p>
-            본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
-            <span className="notice">+2022-09-10 작성</span> <br/>
-            <li><a target="_blank" rel="noreferrer" href="https://fabaneon.github.io/Portfolio-Profile_Website/">
-              이전 HTML 작업물</a></li>
-          </p>
-        </ul>
-   </section>
-  );
-  
-}
 
 
 
@@ -166,23 +150,19 @@ function App() {
   return (
     <div className="App">
       {headerArticle}
-      <div className="Total">
+      <div className='Container-App-Main'>
         <div className="App-Main">
-          <div className="LeftSide">
-              <div className="Navigator">
-                {navArticle}
-                {optionalfunction}
-              </div>
+          <div className="Navigator">
+            {navArticle}
+            {optionalfunction}
           </div>
-          <div className="RightSide">
-              <div className="Article">
-                {mainArticle}
-              </div>
+          <div className="Article">
+            {mainArticle}
           </div>
-          
+          <div className="Aside">
+          </div>
         </div>
       </div>
-      <FooterArticle></FooterArticle>
     </div>
   );
 }

@@ -45,8 +45,6 @@ function Comment(){
                 </div>
             </div>
             <div className="Bottom">
-
-
                     <div className="CommentProfile">
                         <img width="80px" src="img/index_profile_img.png"></img>
                     </div>
