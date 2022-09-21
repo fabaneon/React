@@ -4,6 +4,7 @@ import About from './Component/About';
 import Career from './Component/Career';
 import Roadmap from './Component/Roadmap';
 import Contact from './Component/Contact';
+import Comment from './Component/Comment';
 import './App.css';
 
 
@@ -21,7 +22,7 @@ function Nav(props){
     for(var i = 1; i < props.list.length; i++){
       var a = props.list[i];
       navlist.push(
-        <span key={a.id} id='NavBtn'><a id={a.id}
+        <div key={a.id} id='NavBtn'><a id={a.id}
         className="NavBtn-text"
         title={a.subtitle}
         href={"/read/" + a.title}
@@ -29,7 +30,7 @@ function Nav(props){
           event.preventDefault();
           props.onChangeMode(Number(event.target.id));
         }}>
-          {a.title}</a></span>
+          {a.title}</a></div>
       )
     };
   return(
@@ -40,14 +41,18 @@ function Nav(props){
 
 }
 function Footer(){
+  var displaytime="2022-09-18 마지막 수정"
+
   return(
     <div id="App-footer">
+      <Comment></Comment>
       <h3 className="title">종합 결과물</h3>
-          <p>
+          <p className="footer-description">
             본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
-            <span className="notice">+2022-09-10 작성</span> <br/>
+            <span className="notice">+2022-09-13 작성</span> <br/>
             <li><a target="_blank" rel="noreferrer" href="https://fabaneon.github.io/Portfolio-Profile_Website/">
               이전 HTML 작업물</a></li>
+              {displaytime}
           </p>
    </div>
   );
