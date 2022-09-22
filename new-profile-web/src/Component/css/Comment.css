@@ -18,6 +18,7 @@
 
     .CommentArticle_text{
         word-break: break-all;
+        margin: 8px;
     }
 
 #Comment_Layer{
@@ -37,3 +38,6 @@
         resize: none;
         width : 90%;
     }
+.PageBtn{
+    text-align: center;
+}

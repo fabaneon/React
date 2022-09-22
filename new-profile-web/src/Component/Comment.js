@@ -1,29 +1,41 @@
 import {useState} from 'react'
 import './css/Comment.css'
 
-function Comment(){
-    const [commentlist, setCommentList] = useState([]);
-    const [number, setNumber] = useState(0)
-    let list = [[]];
-    const [listPage, setlistPage] = useState(0);
-    let button = [];
+function Commentlist(props){
+    var PageNumber = props.selectPage;
+    var list = props.commentlist[PageNumber];
 
-    if(commentlist.length > 0){
-        for(var i=0; i < commentlist.length;i++){
-            let xamplelist = list[i];
-            for(var b=0; b < commentlist[i].length; b++)
-            {
-                xamplelist[b].push(
+    console.log();
+    if(list && list.length > 0){
+
+        var xamplelist = [];
+        for(var i=0; i < list.length;i++){
+                xamplelist.push(
                
-                    <div className="CommentArticle">
+                    <div>
+                        
                     <img width="80px" src="img/index_profile_img.png"></img>
-                    <p><div className="CommentArticle_text">ID : {commentlist[i].user}</div></p>
-                    <p><div className="CommentArticle_text">{commentlist[i].text}</div></p>
+                    <div className="CommentArticle_text">ID : {list[i].user}</div>
+                    <div className="CommentArticle_text">{list[i].text}</div>
                     </div>);
-        
-            }
         }
     }
+    return(
+        <div className="CommentArticle">
+            {xamplelist}
+        </div>
+    );
+}
+
+function Comment(){
+    const [commentlist, setCommentList] = useState([[]]);
+    const [number, setNumber] = useState(0)
+    let list = [];
+    const [listPage, setlistPage] = useState(0);
+    const [selectPage, setSelectPage] = useState(0);
+
+
+    list = <Commentlist listPage = {listPage} selectPage = {selectPage} commentlist = {commentlist}></Commentlist>;
     // for(var a=0; a < listPage; a++){
     //     var PageNumber = a;
     //     button.push(
@@ -39,8 +51,27 @@ function Comment(){
     // setCommentblock(list[listPage]);
     return(
         <div id="Comment_Container">
+                    
+                    <div className='PageBtn'>
+                    <span className='PageNum'>{selectPage + " / " + commentlist.length}</span>
+                    <br/>
+                    <button onClick={(event)=>{
+                            event.preventDefault();
+                            if(selectPage > 0){
+                                setSelectPage(selectPage-1);
+                            }
+                        }
+                        }>◀</button>
+                    <button onClick={(event)=>{
+                        event.preventDefault();
+                        if(selectPage < commentlist.length){
+                            setSelectPage(selectPage+1);
+                        }
+                    }
+                    }>▶</button>
+                    </div>
                 {list}
-                {button}
+                
  
                     <form id="Comment_Layer" onSubmit={(event)=>{
                         event.preventDefault();
@@ -49,20 +80,27 @@ function Comment(){
                         var comment_text = event.target.comment_text.value;
                         let newcommentlist = {id:number, user:id, text:comment_text};
                         let newcommentlists = commentlist;
-                        
-                        if(!newcommentlists[listPage]){
-                            newcommentlists[listPage] = [];
-                        }
+
+
+                        // if(!newcommentlists[listPage]){
+                        //     newcommentlists[listPage] = [];
+                        // }
                         console.log(newcommentlists[0]);
 
                         newcommentlists[listPage].push(newcommentlist);
 
-                        if(newcommentlists[listPage] && newcommentlists[listPage].length > 4){
+                        if(newcommentlists[listPage] && newcommentlists[listPage].length > 5){
+                            newcommentlists[listPage+1] = [];
+                            newcommentlists[listPage+1].push(newcommentlists[listPage][5]);
+                            newcommentlists[listPage].pop();
                             setlistPage(listPage+1);
+                            setSelectPage(selectPage+1);
                         }
 
                         setNumber(number+1);
                         setCommentList(newcommentlists);
+
+                        
                         console.log(newcommentlist);
 
                         console.log(newcommentlists);
