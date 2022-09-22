@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import CRUD from './Component/CRUD/CRUD'
 import Webprofile from './Component/Web-Profile/WebProfile';
+import CLASSFUNCTION from './Component/class&function/classfunction';
 import Daynighthandler from './function/js/daynighthandler';
 import Comment from './function/js/comment';
 
@@ -19,11 +20,15 @@ function MainNav(props){
 
   return(
     <div >
+        <li><a title="2022-09-22" href="/classfunction/" onClick={(event)=>{
+        event.preventDefault();
+        props.onChangeMode("CLASSFUNCTION");
+      }} >클래스 코딩 방식 그리고  함수 코딩 방식</a></li>
       <li><a title="2022-09-04 ~ 2022-09-10" href="/CRUD/" onClick={(event)=>{
         event.preventDefault();
         props.onChangeMode("CRUD");
       }} >생활관 명단 기능</a></li>
-      <li><a title="2022-09-11 ~ " href="/WebProfile/" onClick={(event)=>{
+      <li><a title="2022-09-11 ~ 18" href="/WebProfile/" onClick={(event)=>{
         event.preventDefault();
         props.onChangeMode("WEBPROFILE");
       }} >리액트 웹 포트폴리오 프로필</a></li>
@@ -39,7 +44,7 @@ function FooterArticle(){
             본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
             <span className="notice">+2022-09-10 작성</span> <br/>
             <li><a target="_blank" rel="noreferrer" href="https://fabaneon.github.io/Portfolio-Profile_Website/">
-              이전 HTML 작업물</a></li>
+              이후 발전된 HTML 작업물</a></li>
           </p>
    </div>
   );
@@ -72,7 +77,12 @@ function App(){
       button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
       ;
     }
-
+    else if(project === 'CLASSFUNCTION'){
+      ArticleContents = <CLASSFUNCTION></CLASSFUNCTION>
+      Navi = null;
+      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
+      ;
+    }
 
   }
   console.log("mode : " + mode + " project : " + project);
