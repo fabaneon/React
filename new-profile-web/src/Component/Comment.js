@@ -4,7 +4,7 @@ import './css/Comment.css'
 function Commentlist(props){
     var PageNumber = props.selectPage;
     var list = props.commentlist[PageNumber];
-
+    var comment_num = props.number;
     console.log();
     if(list && list.length > 0){
 
@@ -12,8 +12,8 @@ function Commentlist(props){
         for(var i=0; i < list.length;i++){
                 xamplelist.push(
                
-                    <div>
-                        
+                    <div key={list[i].id+"-comment"}>
+                    <span className='notice'>{list[i].id+1+"번째 댓글"}</span><br/>
                     <img width="80px" src="img/index_profile_img.png"></img>
                     <div className="CommentArticle_text">ID : {list[i].user}</div>
                     <div className="CommentArticle_text">{list[i].text}</div>
@@ -35,7 +35,12 @@ function Comment(){
     const [selectPage, setSelectPage] = useState(0);
 
 
-    list = <Commentlist listPage = {listPage} selectPage = {selectPage} commentlist = {commentlist}></Commentlist>;
+    list = <Commentlist
+        number = {number} 
+        listPage = {listPage} 
+        selectPage = {selectPage} 
+        commentlist = {commentlist}>
+        </Commentlist>;
     // for(var a=0; a < listPage; a++){
     //     var PageNumber = a;
     //     button.push(
@@ -53,7 +58,7 @@ function Comment(){
         <div id="Comment_Container">
                     
                     <div className='PageBtn'>
-                    <span className='PageNum'>{selectPage + " / " + commentlist.length}</span>
+                    <span className='PageNum'>{selectPage+ 1 + " / " + Number(commentlist.length)}</span>
                     <br/>
                     <button onClick={(event)=>{
                             event.preventDefault();
@@ -64,7 +69,7 @@ function Comment(){
                         }>◀</button>
                     <button onClick={(event)=>{
                         event.preventDefault();
-                        if(selectPage < commentlist.length){
+                        if(selectPage < commentlist.length-1){
                             setSelectPage(selectPage+1);
                         }
                     }
