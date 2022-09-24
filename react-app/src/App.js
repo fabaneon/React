@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import CRUD from './Component/CRUD/CRUD'
 import Webprofile from './Component/Web-Profile/WebProfile';
 import CLASSFUNCTION from './Component/class&function/classfunction';
+import RandomChoice from './Component/randomchoice/randomchoice';
 import Daynighthandler from './function/js/daynighthandler';
 import Comment from './function/js/comment';
 
@@ -32,6 +33,10 @@ function MainNav(props){
         event.preventDefault();
         props.onChangeMode("WEBPROFILE");
       }} >리액트 웹 포트폴리오 프로필</a></li>
+            <li><a title="2022-09-24" href="/RandomChoice/" onClick={(event)=>{
+        event.preventDefault();
+        props.onChangeMode("RANDOMCHOICE");
+      }} >죽음의 랜덤 뽑기</a></li>
     </div>
   );
 }
@@ -79,6 +84,12 @@ function App(){
     }
     else if(project === 'CLASSFUNCTION'){
       ArticleContents = <CLASSFUNCTION></CLASSFUNCTION>
+      Navi = null;
+      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
+      ;
+    }
+    else if(project === 'RANDOMCHOICE'){
+      ArticleContents = <RandomChoice></RandomChoice>
       Navi = null;
       button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
       ;
