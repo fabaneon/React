@@ -31,7 +31,7 @@ function Nav(props){
         <div key={a.id} id='NavBtn'><NavLink id={a.id}
         className="NavBtn-text"
         title={a.subtitle}
-        to={a.link}
+        to={"/Portfolio-Profile_Website"+a.link}
         onClick={(event)=>{
           // event.preventDefault();
           props.onChangeMode(Number(event.target.id));
@@ -50,10 +50,10 @@ function Nav(props){
 
 function App() {
   const list = [
-    {id:0, title:'About', subtitle:'저는 어떤사람일까요?', link:'about'},
-    {id:1, title:'Career', subtitle:'지난 5년동안 지나온 나의 여정', link:'career'},
-    {id:2, title:'RoadMap', subtitle:'앞으로 떠나야할 나의 여정', link:'roadmap'},
-    {id:3, title:'Contact', subtitle:'건설적인 교류는 언제나 환영입니다.', link:'contact'},
+    {id:0, title:'About', subtitle:'저는 어떤사람일까요?', link:'/about'},
+    {id:1, title:'Career', subtitle:'지난 5년동안 지나온 나의 여정', link:'/career'},
+    {id:2, title:'RoadMap', subtitle:'앞으로 떠나야할 나의 여정', link:'/roadmap'},
+    {id:3, title:'Contact', subtitle:'건설적인 교류는 언제나 환영입니다.', link:'/contact'},
   ];
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(0);
@@ -87,11 +87,11 @@ function App() {
     <div id="App">
       <div id='Container'>
       <Routes>
-        <Route exact path={"/"} element={<Header title='Fabaneon_Web_Profile' subtitle='환영합니다.'></Header>}></Route>
-        <Route exact path={"/about"} element={<Header title='About' subtitle='저는 어떤사람일까요?.'></Header>}></Route>
-        <Route exact path={"/career"} element={<Header title='Career' subtitle='지난 5년동안 지나온 나의 여정.'></Header>}></Route>
-        <Route exact path={"/roadmap"} element={<Header title='RoadMap' subtitle='앞으로 떠나야할 나의 여정'></Header>}></Route>
-        <Route exact path={"/contact"} element={<Header title='Contact' subtitle='건설적인 교류는 언제나 환영입니다.'></Header>}></Route>
+        <Route exact path={"/Portfolio-Profile_Website/"} element={<Header title='Fabaneon_Web_Profile' subtitle='환영합니다.'></Header>}></Route>
+        <Route exact path={"/Portfolio-Profile_Website/about"} element={<Header title='About' subtitle='저는 어떤사람일까요?.'></Header>}></Route>
+        <Route exact path={"/Portfolio-Profile_Website/career"} element={<Header title='Career' subtitle='지난 5년동안 지나온 나의 여정.'></Header>}></Route>
+        <Route exact path={"/Portfolio-Profile_Website/roadmap"} element={<Header title='RoadMap' subtitle='앞으로 떠나야할 나의 여정'></Header>}></Route>
+        <Route exact path={"/Portfolio-Profile_Website/contact"} element={<Header title='Contact' subtitle='건설적인 교류는 언제나 환영입니다.'></Header>}></Route>
       </Routes>
           {navigator}
       
@@ -99,11 +99,11 @@ function App() {
       <main id='App-main'>
         
         <Routes>
-          <Route exact path="/" element={<Profile />}></Route>
-          <Route exact path="/about" element={<About />}></Route>
-          <Route exact path="/career" element={<Career />}></Route>
-          <Route exact path="/roadmap" element={<Roadmap />}></Route>
-          <Route exact path="/contact" element={<Contact />}></Route>
+          <Route exact path="/Portfolio-Profile_Website/" element={<Profile />}></Route>
+          <Route exact path="/Portfolio-Profile_Website/about" element={<About />}></Route>
+          <Route exact path="/Portfolio-Profile_Website/career" element={<Career />}></Route>
+          <Route exact path="/Portfolio-Profile_Website/roadmap" element={<Roadmap />}></Route>
+          <Route exact path="/Portfolio-Profile_Website/contact" element={<Contact />}></Route>
         </Routes>
       
         <div id='App-leftside'>
