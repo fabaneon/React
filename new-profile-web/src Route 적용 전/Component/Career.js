@@ -6,7 +6,7 @@ function Career2020(){
       <figure>
         <img src="img/2020.png" width="400"alt="growup"/>
       </figure>
-      
+      <p>
         <ul>
           <li>2020.08.~2020.12</li>
           <a target="_blank" rel="noreferrer" href="https://twitter.com/youtubegaming/status/1340454450113200137" title="YouTube Gaming Official Twitter">
@@ -25,7 +25,7 @@ function Career2020(){
             2020 Youtube Creator Town</a> 프로젝트 수석 레벨 디자이너 & PM<br/>
           <br/>
         </ul>
-      
+      </p>
      </div>
 
     );
@@ -37,7 +37,7 @@ function Career2021(){
              <figure>
                 <img src="img/2021.png" width="400"alt="growup"/>
               </figure>
-              
+              <p>
 
                 <ul>
                   <li>2021.03.~2021.09</li>
@@ -64,7 +64,7 @@ function Career2021(){
                     충북 이노크래프트</a> 프로젝트 | 메인 PM<br/>
                   <br/>
                 </ul>
-              
+              </p>
 
      </div>
 
@@ -77,7 +77,7 @@ function Career2022(){
               <figure>
                 <img src="img/2022.png" width="400"alt="growup"/>
               </figure>
-              
+              <p>
 
                 <ul>
                   <li>2021.12.~2022.02</li>
@@ -87,7 +87,7 @@ function Career2022(){
                   <li>군입대</li>
                   2022.03 ~ 2023.09<br/>
                 </ul>
-              
+              </p>
 
      </div>
 
@@ -97,7 +97,7 @@ function Career2022(){
 function Student(){
     return(
      <div>
-         
+         <p>
                 <ul>
                   <li>2018 경상남도 고등부 과학 동아리 연구 대회 - 은상</li>
                   <a target="_blank" rel="noreferrer" href="https://drive.google.com/file/d/1mYNXWJ270b4fuxzVNMEQHqkGefPYbrck/view?usp=sharing" title="계획서 google drive viewer" >
@@ -110,7 +110,7 @@ function Student(){
                   </figure>
                   <br/>
                 </ul>
-         
+         </p>
 
      </div>
 

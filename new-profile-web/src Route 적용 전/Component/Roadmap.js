@@ -4,7 +4,7 @@ function Roadmap(){
     return(
         <div id="App-article">
         <section>
-          <article className="roadmap description">
+          <article class="roadmap description">
             <span className="title">나의 로드맵 ~ 2022.09.02</span>
             <figure>
               <img className="ArticleImg" src="img/ownroadmap.png" alt="나의 로드맵"/><br/>

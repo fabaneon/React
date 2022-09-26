@@ -1,0 +1,43 @@
+#Comment_Container{
+    display: flex;
+    flex-direction: column;
+    max-width:600px;
+    border: 2px solid rgba(0, 0, 0, 0.164);
+    border-top: 0px;
+    border-bottom: 0px;
+    padding: 36px;
+    background-color: rgba(0, 0, 0, 0.076);
+
+}
+.CommentArticle{
+    flex:2;
+    padding: 4px;
+    margin-bottom: 16px;
+    background-color: rgba(0, 0, 0, 0.212);
+}
+
+    .CommentArticle_text{
+        word-break: break-all;
+        margin: 8px;
+    }
+
+#Comment_Layer{
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+
+
+}
+    .Comment_Box{
+        flex:1;
+        padding: 4px;
+        background-color:rgba(30, 19, 238, 0.086);
+        
+    }
+    textarea{
+        resize: none;
+        width : 90%;
+    }
+.PageBtn{
+    text-align: center;
+}

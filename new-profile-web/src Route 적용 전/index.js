@@ -1,3 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+
 import {useState} from 'react';
 import Profile from './Component/Profile';
 import About from './Component/About';
@@ -5,7 +11,6 @@ import Career from './Component/Career';
 import Roadmap from './Component/Roadmap';
 import Contact from './Component/Contact';
 import Comment from './Component/Comment';
-import './App.css';
 
 
 function Header(props){
@@ -25,7 +30,7 @@ function Nav(props){
         <div key={a.id} id='NavBtn'><a id={a.id}
         className="NavBtn-text"
         title={a.subtitle}
-        href={"/read/" + a.title}
+        href={"/"+a.title.toLowerCase()}
         onClick={(event)=>{
           event.preventDefault();
           props.onChangeMode(Number(event.target.id));
@@ -69,7 +74,7 @@ function App() {
   ];
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(null);
-  let header, navigator, article, leftside, rightside, footer;
+  let header, navigator, leftside, rightside, footer;
 
   if(mode ==='WELCOME'){
     if(list[5]){
@@ -77,7 +82,6 @@ function App() {
       console.log(list);
     }
     header = <Header title={list[0].title} subtitle={list[0].subtitle}></Header>
-    article = <Profile></Profile>
     navigator = <Nav list = {list} onChangeMode={(id)=>{
       setId(id);
       setMode('READ')
@@ -87,19 +91,18 @@ function App() {
   if(mode === 'READ'){
     if(id === 1){
       header = <Header title={list[id].title} subtitle={list[id].subtitle}></Header>
-      article = <About></About>
+ 
     }
     else if(id === 2){
       header = <Header title={list[id].title} subtitle={list[id].subtitle}></Header>
-      article = <Career></Career>
+ 
     }
     else if(id === 3){
       header = <Header title={list[id].title} subtitle={list[id].subtitle}></Header>
-      article = <Roadmap></Roadmap>
+ 
     }
     else if(id === 4){
-    header = <Header title={list[id].title} subtitle={list[id].subtitle}></Header>
-    article = <Contact></Contact>  
+    header = <Header title={list[id].title} subtitle={list[id].subtitle}></Header>   
     }
     else if(id === 5){
       setMode('WELCOME');
@@ -110,7 +113,6 @@ function App() {
       setMode('READ')
     }}></Nav>;
   }
-
   footer = <Footer></Footer>
   leftside = "aside";
   rightside = "aside";
@@ -122,12 +124,17 @@ function App() {
           {header}
 
           {navigator}
-
+      
       </div>
       <main id='App-main'>
-
-          {article}
-   
+        
+        <Routes>
+          <Route path="/" element={<Profile />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/career" element={<Career />}></Route>
+          <Route path="/roadmap" element={<Roadmap />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Routes>
         <div id='App-leftside'>
           {leftside}
         </div>
@@ -142,4 +149,18 @@ function App() {
   );
 }
 
-export default App;
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
