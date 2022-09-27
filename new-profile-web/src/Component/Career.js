@@ -140,8 +140,8 @@ function CareerNav(props){
   const list = props.list;  
   let navlist = [];
   for (var i=0; i < list.length; i++){
-    navlist.push(<NavLink key={list[i].year+list[i].id} id="NavBtn" to={"/Portfolio-Profile_Website/career/" + list[i].year}type='button'>                 
-    <span className="NavBtn-text">{list[i].description}</span></NavLink>)
+    navlist.push(<div id="NavBtn"><NavLink key={list[i].year+list[i].id} className="NavBtn-text" to={"/Portfolio-Profile_Website/career/" + list[i].year}type='button'>                 
+    {list[i].description}</NavLink></div>)
   }
 
     return(
