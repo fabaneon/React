@@ -25,6 +25,7 @@ function Header(props){
 function Nav(props){
   
   var navlist = [];
+  var subnavlist = [];
     for(var i = 0; i < props.list.length; i++){
       var a = props.list[i];
       navlist.push(
@@ -39,9 +40,25 @@ function Nav(props){
           {a.title}</NavLink></div>
       )
     };
+    // for(var i = 0; i < props.list.length; i++){
+    //   var a = props.list[i];
+    //   navlist.push(
+    //     <div key={a.id} id='NavBtn'><NavLink id={a.id}
+    //     className="NavBtn-text"
+    //     title={a.subtitle}
+    //     to={"/Portfolio-Profile_Website"+a.link}
+    //     onClick={(event)=>{
+    //       // event.preventDefault();
+    //       props.onChangeMode(Number(event.target.id));
+    //     }}>
+    //       {a.title}</NavLink></div>
+    //   )
+    // };
+
   return(
     <nav id='App-Nav'>
       {navlist}
+      {subnavlist}
     </nav>
   );
 
@@ -57,7 +74,7 @@ function App() {
   ];
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(0);
-  let navigator, leftside, rightside;
+  let navigator;
   if(mode ==='WELCOME'){
     if(list[4]){
       list.pop();
@@ -80,37 +97,49 @@ function App() {
       setMode('READ')
     }}></Nav>;
   }
-  leftside = "aside";
-  rightside = "aside";
   console.log("id : " + id + "  mode : " + mode);
   return (
     <div id="App">
       <div id='Container'>
-      <Routes>
-        <Route exact path={"/Portfolio-Profile_Website/"} element={<Header title='Fabaneon_Web_Profile' subtitle='환영합니다.'></Header>}></Route>
-        <Route exact path={"/Portfolio-Profile_Website/about"} element={<Header title='About' subtitle='저는 어떤사람일까요?.'></Header>}></Route>
-        <Route exact path={"/Portfolio-Profile_Website/career"} element={<Header title='Career' subtitle='지난 5년동안 지나온 나의 여정.'></Header>}></Route>
-        <Route exact path={"/Portfolio-Profile_Website/roadmap"} element={<Header title='RoadMap' subtitle='앞으로 떠나야할 나의 여정'></Header>}></Route>
-        <Route exact path={"/Portfolio-Profile_Website/contact"} element={<Header title='Contact' subtitle='건설적인 교류는 언제나 환영입니다.'></Header>}></Route>
-      </Routes>
-          {navigator}
-      
+        <header>
+            <Routes>
+              <Route exact path={"/Portfolio-Profile_Website/"} element={<Header title='Fabaneon_Web_Profile' subtitle='환영합니다.'></Header>}></Route>
+              <Route exact path={"/Portfolio-Profile_Website/about"} element={<Header title='About' subtitle='저는 어떤사람일까요?.'></Header>}></Route>
+              <Route exact path={"/Portfolio-Profile_Website/career/*"} element={<Header title='Career' subtitle='지난 5년동안 지나온 나의 여정.'></Header>}></Route>
+              <Route exact path={"/Portfolio-Profile_Website/roadmap"} element={<Header title='RoadMap' subtitle='앞으로 떠나야할 나의 여정'></Header>}></Route>
+              <Route exact path={"/Portfolio-Profile_Website/contact"} element={<Header title='Contact' subtitle='건설적인 교류는 언제나 환영입니다.'></Header>}></Route>
+            </Routes>
+            {navigator}
+        </header>
       </div>
       <main id='App-main'>
         
         <Routes>
+         <Route element={"Not Found"} />
           <Route exact path="/Portfolio-Profile_Website/" element={<Profile />}></Route>
           <Route exact path="/Portfolio-Profile_Website/about" element={<About />}></Route>
-          <Route exact path="/Portfolio-Profile_Website/career" element={<Career />}></Route>
+          <Route exact path="/Portfolio-Profile_Website/career/*" element={<Career />}></Route>
           <Route exact path="/Portfolio-Profile_Website/roadmap" element={<Roadmap />}></Route>
           <Route exact path="/Portfolio-Profile_Website/contact" element={<Contact />}></Route>
         </Routes>
       
         <div id='App-leftside'>
-          {leftside}
+          <Routes>
+            <Route exact path="/Portfolio-Profile_Website/" element={"Profile"}></Route>
+            <Route exact path="/Portfolio-Profile_Website/about" element={"about"}></Route>
+            <Route exact path="/Portfolio-Profile_Website/career/*" element={"career"}></Route>
+            <Route exact path="/Portfolio-Profile_Website/roadmap" element={"roadmap"}></Route>
+            <Route exact path="/Portfolio-Profile_Website/contact" element={"contact"}></Route>
+          </Routes>
         </div>
         <div id='App-rightside'>
-          {rightside}
+        <Routes>
+            <Route  path="/Portfolio-Profile_Website/" element={"Profile"}></Route>
+            <Route  path="/Portfolio-Profile_Website/about" element={"about"}></Route>
+            <Route  path="/Portfolio-Profile_Website/career/*" element={"career"}></Route>
+            <Route  path="/Portfolio-Profile_Website/roadmap" element={"roadmap"}></Route>
+            <Route  path="/Portfolio-Profile_Website/contact" element={"contact"}></Route>
+          </Routes>
         </div>
       </main>
       <footer>

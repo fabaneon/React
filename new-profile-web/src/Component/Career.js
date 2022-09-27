@@ -1,4 +1,23 @@
-import {useState} from 'react';
+import {NavLink,Route,Routes,useParams} from 'react-router-dom'
+
+function CareerIntroduce(){
+  return(
+    <div>
+      <h3 className='important'>탐색해보세요!</h3>
+      <figure>
+        <img src="img/searching.jpg" width="300"alt="growup"/>
+      </figure>
+      <article>
+        <p>위 버튼을 눌러 연도별 성과를 확인하실 수 있습니다.</p>
+        <p className='notice'>※ 중.소규모 프로젝트는 제외시켰습니다.※</p>  
+      </article>    
+    
+        
+    </div>
+
+  );
+}
+  
 
 function Career2020(){
     return(
@@ -118,67 +137,57 @@ function Student(){
 }
 
 function CareerNav(props){
+  const list = props.list;  
+  let navlist = [];
+  for (var i=0; i < list.length; i++){
+    navlist.push(<NavLink key={list[i].year+list[i].id} id="NavBtn" to={"/Portfolio-Profile_Website/career/" + list[i].year}type='button'>                 
+    <span className="NavBtn-text">{list[i].description}</span></NavLink>)
+  }
+
     return(
-        <div>
-          
-                      <button year = '2020'type="button" className="navyBtn" onClick={(event)=>{
-                        event.preventDefault();
-                        props.onChangeMode('2020');
-                      }}>
-                      2020</button>
-              
-                      <button year = '2021' type="button"  className="navyBtn" onClick={(event)=>{
-                        event.preventDefault();
-                        props.onChangeMode('2021');
-                      }}>
-                      2021</button>
-                   
-                      <button year = '2022' type="button" className="navyBtn" onClick={(event)=>{
-                        event.preventDefault();
-                        props.onChangeMode('2022');
-                      }}>
-                      2022</button>
-                    <button year = 'student' type="button" className="navyBtn" onClick={(event)=>{
-                        event.preventDefault();
-                        props.onChangeMode('student');
-                    }}>
-                    학창 시절 과제 연구물</button>
-                
+        <div id="App-Nav">
+          {navlist}
         </div>
-
-
-
     );
+}
+function SelectedPage (props) {
+  const list = props.list;
+  var {career_id} = useParams();
+  var selected_page = ["Sorry, Nothing Found Here."];
+    for (var i=0; i<list.length; i++){
+      if(list[i].year === career_id){
+        selected_page = list[i].content;
+        console.log(list[i].year === career_id)
+      }
+      
+    }
+    console.log({career_id})
+    console.log(list[0].content)
+    console.log(list.length)
+  return (
+    <div>
+      {selected_page}
+    </div>
+  );
 }
 
 function Career(){
-    const[year, setYear] = useState('2020');
 
-
-    let careerfigure = null;
-    
-    if(year === '2020'){
-        careerfigure = <Career2020></Career2020>;
-    }
-    else if(year === '2021'){
-        careerfigure = <Career2021></Career2021>;
-    }
-    else if(year === '2022'){
-        careerfigure = <Career2022></Career2022>;
-    }
-    else if(year === 'student'){
-        careerfigure = <Student></Student>;
-    }
-
-    
+  const list = [
+    {id: 0, year: "2020", description:2020, content:<Career2020/>},
+    {id: 1, year: "2021", description:2021, content:<Career2021/>},
+    {id: 2, year: "2022", description:2022, content:<Career2022/>},
+    {id: 3, year: "student", description:"학생 시절 연구물",content:<Student/>}
+  ];
     
     return(
         <div id="App-article">
-            <CareerNav onChangeMode={(year)=>{
-                setYear(year);
-                console.log(year);
-            }}></CareerNav>
-            {careerfigure}
+            <CareerNav list = {list}></CareerNav>
+          <Routes>
+            <Route path=":career_id" element={<SelectedPage list = {list}/>}></Route>
+            <Route path="/" element={<CareerIntroduce/>}></Route>
+          </Routes>
+          
 
         </div>
     );
