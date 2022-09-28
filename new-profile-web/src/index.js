@@ -4,7 +4,6 @@ import {BrowserRouter,Route,Routes,NavLink} from 'react-router-dom';
 import App from './profilemain';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Roadmap from './Component/Roadmap';
 var lact = <>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/"}>Lobby</NavLink></span>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/main"}>ProfilePage</NavLink></span>
