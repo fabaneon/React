@@ -4,7 +4,6 @@ import './css/Comment.css'
 function Commentlist(props){
     var PageNumber = props.selectPage;
     var list = props.commentlist[PageNumber];
-    var comment_num = props.number;
     console.log();
     if(list && list.length > 0){
 
@@ -17,9 +16,16 @@ function Commentlist(props){
                     <img width="80px" src="img/index_profile_img.png"></img>
                     <div className="CommentArticle_text">ID : {list[i].user}</div>
                     <div className="CommentArticle_text">{list[i].text}</div>
+                    {/* <button onClick={(list)=>{
+                        
+                        console.log(props.commentlist[PageNumber][i].id);
+                        // list.splice(list[i].id, 1,"삭제된 댓글");
+                        // list.sort()
+                    }}>삭제</button> */}
                     </div>);
         }
     }
+    console.log(list);
     return(
         <div className="CommentArticle">
             {xamplelist}
