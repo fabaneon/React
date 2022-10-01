@@ -3,6 +3,9 @@ import CRUD from './Component/CRUD/CRUD'
 import Webprofile from './Component/Web-Profile/WebProfile';
 import CLASSFUNCTION from './Component/class&function/classfunction';
 import RandomChoice from './Component/randomchoice/randomchoice';
+import Gamble from './Component/gamble/gamble'
+
+
 import Daynighthandler from './function/js/daynighthandler';
 import Comment from './function/js/comment';
 
@@ -37,6 +40,11 @@ function MainNav(props){
         event.preventDefault();
         props.onChangeMode("RANDOMCHOICE");
       }} >죽음의 랜덤 뽑기</a></li>
+            <li><a title="2022-10-01" href="/Gamble/" onClick={(event)=>{
+        event.preventDefault();
+        props.onChangeMode("GAMBLE");
+      }} >갬블링</a></li>
+
     </div>
   );
 }
@@ -73,34 +81,31 @@ function App(){
   else if(mode === 'project-selected'){
     if(project === 'CRUD'){
       ArticleContents = <CRUD></CRUD>
-      Navi = null;
-      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>;
     }
     else if(project === 'WEBPROFILE'){
       ArticleContents = <Webprofile></Webprofile>
-      Navi = null;
-      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
-      ;
+      
     }
     else if(project === 'CLASSFUNCTION'){
       ArticleContents = <CLASSFUNCTION></CLASSFUNCTION>
-      Navi = null;
-      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
-      ;
+      
     }
     else if(project === 'RANDOMCHOICE'){
       ArticleContents = <RandomChoice></RandomChoice>
-      Navi = null;
-      button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
-      ;
+      
     }
-
+    else if(project === 'GAMBLE'){
+      ArticleContents = <Gamble></Gamble>
+      
+    }
+    Navi = null;
+    button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
   }
-  console.log("mode : " + mode + " project : " + project);
+  // console.log("mode : " + mode + " project : " + project);
 
   return(
      <div className="App">
-      <Daynighthandler></Daynighthandler>
+      {/* <Daynighthandler></Daynighthandler> */}
         <div className="MainOption">
         {ArticleContents}
         

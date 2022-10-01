@@ -16,7 +16,7 @@ function Randomchoice(){
     }
 
 
-    console.log(list);
+    console.log(list + " / " + status);
     return(
         <div className="Container">
             <div className="App-header">

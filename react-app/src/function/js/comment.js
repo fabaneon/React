@@ -28,14 +28,14 @@ function Comment(){
             List.push(
                
             <div className="CommentArticle">
-            <img width="80px" src="img/index_profile_img.png"></img>
+            <img alt="profile_img.png" width="80px" src="img/index_profile_img.png"></img>
             <p><div className="CommentArticle_ID">ID : {commentList[i].id}</div></p>
             <p><div className="CommentArticle_Text">{commentList[i].text}</div></p>
             </div>);
         }
     }
     // console.log("댓글 목록 : "+commentList);
-    // console.log(write);
+    console.log(check);
     return(
         
         <div className="CommentLayer">
@@ -46,7 +46,7 @@ function Comment(){
             </div>
             <div className="Bottom">
                     <div className="CommentProfile">
-                        <img width="80px" src="img/index_profile_img.png"></img>
+                        <img alt="profile_img.png" width="80px" src="img/index_profile_img.png"></img>
                     </div>
                     <div className="CommentWrite">
                          <form onSubmit={(event)=>{
