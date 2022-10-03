@@ -47,7 +47,16 @@ function GambleTotal(props){
     var teamlist = [[],[]];
     var teamdisplay = [[],[]];
     var dicedisplay = null;
+    console.log("어플 시작됨========================================");
+    console.log(gameover);
 
+    if(gameover === "GAMEOVER"){
+        var listclear = [[],[]];
+        teamlist = listclear;
+        teamdisplay = listclear;
+        dicedisplay = null;
+        setGameover("GAMESTART");
+    }
 
     // 베팅 내역 사용자 별로 집계하기.
     if( team[0].length > 0 && team[1].length > 0){
@@ -58,7 +67,7 @@ function GambleTotal(props){
             for(var a1 = 0; a1 < team[l].length; a1++){
                 var teamname = team[l][a1].name;
                 for(var a2 = 0; a2 < team[l].length; a2++){
-                    console.log(a2 + "번째 시작")
+                    // console.log(a2 + "번째 시작")
                     if(teamlist[l][a2] && teamlist[l][a2][0].name === teamname){
                         teamlist[l][a2].push(team[l][a1]);
                         break;
@@ -69,50 +78,26 @@ function GambleTotal(props){
                         break;
                     }
                     else{
-                        console.log(a2 + "번째는 건너뜀")
+                        // console.log(a2 + "번째는 건너뜀")
                     }
                 }
                 
                 total[l] = Number(total[l]) + Number(team[l][a1].bet);
-                console.log(total[l]);
+                // console.log(total[l]);
             }
         }
-        if(total[0] !== total[1]){
-            total[0]= "양쪽 베팅금이 ";
-            total[1]= "서로 다릅니다."; 
-            dicedisplay = <h3 className='notice'>
-                {total[0] + total[1]  + "양쪽의 베팅금액을 맞춰주세요"}</h3>;
+        // if(total[0] !== total[1]){
+        //     total[0]= "양쪽 베팅금이 ";
+        //     total[1]= "서로 다릅니다."; 
+        //     dicedisplay = <h3 className='notice'>
+        //         {total[0] + total[1]  + "양쪽의 베팅금액을 맞춰주세요"}</h3>;
+        // }
+        if(gameover === "시발"){
+            console.log("이게왜나와?");
         }
         else{
-            if(gameover === "GAMESTART"){
-            // 예상수익 , 배율 계산
-                for(var l2 = 0; l2 < team.length; l2++){
-                
-                
-                        for(var a3 = 0; a3 < teamlist[l2].length; a3++){
-                            var listtotal = Number(0);
-                            for(var a4 = 0; a4 < teamlist[l2][a3].length; a4++){
-                                if(teamlist[l2][a3][a4]){
-                                    listtotal += teamlist[l2][a3][a4].bet;
-                                }
-                            }
-                            var calculate = (((total[0]+total[1]-total[l2])/100*(listtotal/(total[l2]/100)))+listtotal).toFixed(0);
-                            teamdisplay[l2].push(
-                                <div className="Bet-total" key={teamlist[l2][a3][0].id}>
-                                <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
-                                <p>{"총 베팅금 :    " + listtotal + "원 "}</p>
-                                <p>{"예상  수익 :  " + calculate + "원" }</p>
-                            <p>{"배율 " + (calculate / listtotal).toFixed(2)
-                            + " 배"}</p>
-                            </div>)
-                    console.log(a3 + " 번째 배율 연산");
-                    console.log(total[0]+total[1]);
-    
-                    }   
-                }
-            }
-            else if(gameover === "GAMERELOAD"){
-                // 예상수익 , 배율 계산
+            if(gameover === "GAMERELOAD"){
+                // 주사위값 산출 후 결과 집계
                 
                     for(var l2 = 0; l2 < team.length; l2++){
                 
@@ -156,15 +141,38 @@ function GambleTotal(props){
                                      <p>{"총 손실금 :   - " + listtotal + "원 "}</p>
                                  </div>)
                                 }
-                             }
- 
-                            console.log(a3 + " 번째 배율 연산");
-                            console.log(total[0]+total[1]);
-        
+                             }       
                         }   
                     }
               
             }
+            else{
+                // 예상수익 , 배율 계산
+                    for(var l2 = 0; l2 < team.length; l2++){
+                    
+                    
+                            for(var a3 = 0; a3 < teamlist[l2].length; a3++){
+                                var listtotal = Number(0);
+                                for(var a4 = 0; a4 < teamlist[l2][a3].length; a4++){
+                                    if(teamlist[l2][a3][a4]){
+                                        listtotal += teamlist[l2][a3][a4].bet;
+                                    }
+                                }
+                                var calculate = (((total[0]+total[1]-total[l2])/100*(listtotal/(total[l2]/100)))+listtotal).toFixed(0);
+                                teamdisplay[l2].push(
+                                    <div className="Bet-total" key={teamlist[l2][a3][0].id}>
+                                    <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
+                                    <p>{"총 베팅금 :    " + listtotal + "원 "}</p>
+                                    <p>{"예상  수익 :  " + calculate + "원" }</p>
+                                <p>{"배율 " + (calculate / listtotal).toFixed(2)
+                                + " 배"}</p>
+                                </div>)
+                        // console.log(a3 + " 번째 배율 연산");
+                        // console.log(total[0]+total[1]);
+        
+                        }   
+                    }
+                }
             dicedisplay = <>
             <input type="button"className='DiceBtn' value={dicemode} onClick={()=>{
                     if(dicemode === "주사위 굴리기"){
@@ -173,14 +181,17 @@ function GambleTotal(props){
                             console.log(dice);
                             props.onChangemode(dice);
                             setDice(dice);
+                            setGameover("GAMERELOAD");
                         }}/>);
                         setDicemode("게임 초기화");
                     }
                     else{
-                        setGameover("GAMERELOAD");
-                        props.onReloadingmode("GAMERELOAD");
+                        props.onEndmode("GAMEOVER");
+                        setGameover("GAMEOVER");
+                        console.log(gameover);
                         setDice("1 ~ 6의 숫자가 나옵니다.");
                         setDicemode("주사위 굴리기");
+                        setDice(null);
                     }
                     
                     }}/>
@@ -234,12 +245,17 @@ function GambleTotal(props){
         </>
     )
 }
+
+
+
+
+
 function Dice(props){
     let list = null;
     let calc = null;
     const [listtotal,setlisttotal] = useState(0);
 
-    console.log( "r굴린횟수 :   "+ listtotal)
+    // console.log( "r굴린횟수 :   "+ listtotal)
     if(listtotal > 100){
         setTimeout(function(){
         }, 500);
@@ -258,7 +274,7 @@ function Dice(props){
 
     
 
-    console.log("최종 list " + list);
+    // console.log("최종 list " + list);
     return(
         <>
             {list}
@@ -274,7 +290,7 @@ function Gamble(){
     console.log("최종적으로 끄집어낸 dice 눈값" + dice);
     console.log("최종적으로 끄집어낸 gameover 값" + gameover);
 
-    if(gameover === "GAMERELOAD"){
+    if(gameover === "GAMEOVER"){
         var clearbetlist = [[],[]];
         setBetlist(clearbetlist);
         setGameover("GAMESTART");
@@ -289,14 +305,14 @@ function Gamble(){
                          <BetlistPrinter dice={dice} betlist = {betlist} gameover={gameover} team="0"/>
                     <article className="Bet-Article">
                         <GambleTotal betlist = {betlist} gameover={gameover} 
-                        onReloadingmode={(reload)=>{
+                        onEndmode={(GAMEOVER)=>{
                             console.log("주사위 초기화 버튼 눌러짐");
-                            setGameover(reload);
+                            setGameover(GAMEOVER);
                         }}
                         onChangemode={(dice)=>{
                             console.log("Gamble에서 onChangemode");
                             console.log(dice);
-                            setGameover("GAMEOVER");
+                            setGameover("GAMERELOAD");
                             setdice(dice);
                         }}/>
                     </article>
