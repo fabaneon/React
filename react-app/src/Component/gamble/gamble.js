@@ -24,6 +24,7 @@ function BetlistPrinter(props){
             total = <p>{" 총액 : " + totalbet + "원"}</p>;
         }
     };
+    
 
 
     return(
@@ -38,6 +39,7 @@ function BetlistPrinter(props){
 }
 function GambleTotal(props){
     const [dice,setDice] = useState(null);
+    const [gameover,setGameover] = useState("GAMESTART");
     const [dicemode, setDicemode] = useState('주사위 굴리기');
 
     var team= null, total = [[null],[null]], win = null;
@@ -49,7 +51,10 @@ function GambleTotal(props){
 
     // 베팅 내역 사용자 별로 집계하기.
     if( team[0].length > 0 && team[1].length > 0){
+    
+    
         for(var l = 0; l < team.length; l++){
+            
             for(var a1 = 0; a1 < team[l].length; a1++){
                 var teamname = team[l][a1].name;
                 for(var a2 = 0; a2 < team[l].length; a2++){
@@ -79,31 +84,86 @@ function GambleTotal(props){
                 {total[0] + total[1]  + "양쪽의 베팅금액을 맞춰주세요"}</h3>;
         }
         else{
-           
+            if(gameover === "GAMESTART"){
             // 예상수익 , 배율 계산
-            for(var l2 = 0; l2 < team.length; l2++){
-            
+                for(var l2 = 0; l2 < team.length; l2++){
+                
+                
+                        for(var a3 = 0; a3 < teamlist[l2].length; a3++){
+                            var listtotal = Number(0);
+                            for(var a4 = 0; a4 < teamlist[l2][a3].length; a4++){
+                                if(teamlist[l2][a3][a4]){
+                                    listtotal += teamlist[l2][a3][a4].bet;
+                                }
+                            }
+                            var calculate = (((total[0]+total[1]-total[l2])/100*(listtotal/(total[l2]/100)))+listtotal).toFixed(0);
+                            teamdisplay[l2].push(
+                                <div className="Bet-total" key={teamlist[l2][a3][0].id}>
+                                <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
+                                <p>{"총 베팅금 :    " + listtotal + "원 "}</p>
+                                <p>{"예상  수익 :  " + calculate + "원" }</p>
+                            <p>{"배율 " + (calculate / listtotal).toFixed(2)
+                            + " 배"}</p>
+                            </div>)
+                    console.log(a3 + " 번째 배율 연산");
+                    console.log(total[0]+total[1]);
+    
+                    }   
+                }
+            }
+            else if(gameover === "GAMERELOAD"){
+                // 예상수익 , 배율 계산
+                
+                    for(var l2 = 0; l2 < team.length; l2++){
+                
+                
+                        for(var a3 = 0; a3 < teamlist[l2].length; a3++){
+                            var listtotal = Number(0);
+                            for(var a4 = 0; a4 < teamlist[l2][a3].length; a4++){
+                                if(teamlist[l2][a3][a4]){
+                                    listtotal += teamlist[l2][a3][a4].bet;
+                                }
+                            }
+                            var calculate = (((total[0]+total[1]-total[l2])/100*(listtotal/(total[l2]/100)))+listtotal).toFixed(0);
+                            if(dice < 4){
+                               if(l2 === 0){
+                                teamdisplay[l2].push(
+                                    <div className="Bet-total" key={teamlist[l2][a3][0].id}>
+                                    <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
+                                    <p>{"총 수익금 :    " + calculate + "원 "}</p>
+                                </div>)
+                               }
+                               else{
+                                teamdisplay[l2].push(
+                                    <div className="Bet-total" key={teamlist[l2][a3][0].id}>
+                                    <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
+                                    <p>{"총 손실금 :   - " + listtotal + "원 "}</p>
+                                </div>)
+                               }
+                            }
+                            else if(dice > 3){
+                                if(l2 === 1){
+                                 teamdisplay[l2].push(
+                                     <div className="Bet-total" key={teamlist[l2][a3][0].id}>
+                                     <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
+                                     <p>{"총 수익금 :    " + calculate + "원 "}</p>
+                                 </div>)
+                                }
+                                else{
+                                 teamdisplay[l2].push(
+                                     <div className="Bet-total" key={teamlist[l2][a3][0].id}>
+                                     <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
+                                     <p>{"총 손실금 :   - " + listtotal + "원 "}</p>
+                                 </div>)
+                                }
+                             }
+ 
+                            console.log(a3 + " 번째 배율 연산");
+                            console.log(total[0]+total[1]);
         
-                for(var a3 = 0; a3 < teamlist[l2].length; a3++){
-                    var listtotal = Number(0);
-                    for(var a4 = 0; a4 < teamlist[l2][a3].length; a4++){
-                        if(teamlist[l2][a3][a4]){
-                            listtotal += teamlist[l2][a3][a4].bet;
-                        }
+                        }   
                     }
-                    var calculate = (((total[0]+total[1]-total[l2])/100*(listtotal/(total[l2]/100)))+listtotal).toFixed(0);
-                    teamdisplay[l2].push(
-                        <div className="Bet-total" key={teamlist[l2][a3][0].id}>
-                        <p>{ a3+1+"번 참가자 :" + teamlist[l2][a3][0].name}</p>
-                        <p>{"총 베팅금 :    " + listtotal + "원 "}</p>
-                        <p>{"예상  수익 :  " + calculate + "원" }</p>
-                        <p>{"배율 " + (calculate / listtotal).toFixed(2)
-                        + " 배"}</p>
-                        </div>)
-                console.log(a3 + " 번째 배율 연산");
-                console.log(total[0]+total[1]);
-
-                }   
+              
             }
             dicedisplay = <>
             <input type="button"className='DiceBtn' value={dicemode} onClick={()=>{
@@ -117,6 +177,7 @@ function GambleTotal(props){
                         setDicemode("게임 초기화");
                     }
                     else{
+                        setGameover("GAMERELOAD");
                         props.onReloadingmode("GAMERELOAD");
                         setDice("1 ~ 6의 숫자가 나옵니다.");
                         setDicemode("주사위 굴리기");
@@ -134,14 +195,15 @@ function GambleTotal(props){
             else{
                 win = null;
             }
-        }
+       }
+    
     } 
-        else{
-            total[0]= "양쪽에";
-            total[1] = "베팅금이 있어야합니다.";
-            dicedisplay = <h3 className='notice'>
-            {total[0] + total[1]}<br/>{"게임에 참여해주세요"}</h3>;
-        }
+    else{
+        total[0]= "양쪽에";
+        total[1] = "베팅금이 있어야합니다.";
+        dicedisplay = <h3 className='notice'>
+        {total[0] + total[1]}<br/>{"게임에 참여해주세요"}</h3>;
+    }
     
         // 이제 이기는 판정만 하면 됨.
         // average = (total / );
