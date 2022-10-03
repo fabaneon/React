@@ -13,7 +13,7 @@ function Commentlist(props){
                
                     <div key={list[i].id+"-comment"}>
                     <span className='notice'>{list[i].id+1+"번째 댓글"}</span><br/>
-                    <img width="80px" src="img/index_profile_img.png"></img>
+                    <img width="80px" src={require("../img/index_profile_img.png") } alt="index_Profile"></img>
                     <div className="CommentArticle_text">ID : {list[i].user}</div>
                     <div className="CommentArticle_text">{list[i].text}</div>
                     {/* <button onClick={(list)=>{

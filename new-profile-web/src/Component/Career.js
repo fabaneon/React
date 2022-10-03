@@ -5,7 +5,7 @@ function CareerIntroduce(){
     <div>
       <h3 className='important'>탐색해보세요!</h3>
       <figure>
-        <img src="img/searching.jpg" width="300"alt="growup"/>
+        <img src={require("../img/searching.jpg")} width="300"alt="searching"/>
       </figure>
       <article>
         <p>위 버튼을 눌러 연도별 성과를 확인하실 수 있습니다.</p>
@@ -23,7 +23,7 @@ function Career2020(){
     return(
      <div>
       <figure>
-        <img src="img/2020.png" width="400"alt="growup"/>
+        <img src={require("../img/2020.png")} width="400"alt="2020"/>
       </figure>
       
         <ul>
@@ -54,7 +54,7 @@ function Career2021(){
     return(
      <div>
              <figure>
-                <img src="img/2021.png" width="400"alt="growup"/>
+                <img src={require("../img/2021.png")} width="400"alt="2021"/>
               </figure>
               
 
@@ -94,7 +94,7 @@ function Career2022(){
     return(
      <div>
               <figure>
-                <img src="img/2022.png" width="400"alt="growup"/>
+                <img src={require("../img/2022.png")} width="400"alt="2022"/>
               </figure>
               
 
@@ -125,7 +125,7 @@ function Student(){
                   <br/>
                   <li>2019 과학교육 종합 성과발표회 - 학생 과제연구 발표대회 3위</li>
                   <figure>
-                    <img src="img/2019_Highschool.png" width="600"alt="growup"/>
+                    <img src={require("../img/2019_Highschool.png")} width="600"alt="학생 과제연구 발표대회 포스터"/>
                   </figure>
                   <br/>
                 </ul>

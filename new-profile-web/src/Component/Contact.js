@@ -4,7 +4,7 @@ function Contact(){
 
         <div id="App-article">
               <figure>
-                <img src="img/business_card.png" alt="명함"/>
+                <img src={require("../img/business_card.png")} alt="명함"/>
               </figure>
     
               <p>

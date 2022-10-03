@@ -6,7 +6,7 @@ function Article1(){
       <h2 className="important"><a  target="_blank" rel="noreferrer" href="https://ko.wikipedia.org/wiki/%EC%83%81%EB%8C%80%EC%A3%BC%EC%9D%98" title="위키피디아 | 상대주의 정의">
         상대주의적</a> 사고회로</h2> <br/>
       <figure>
-        <img src="img\growup.jpg" width="400"alt="growup"/>
+        <img src={require("../img/growup.jpg")} width="400"alt="growup"/>
       </figure>
       <p>
         전 과거부터 지금까지 나자신을 성장시키는것이라면, [경험, 지식..] 그 무엇이든 상관없이 달려들었던 사람이였습니다. <br/>
@@ -40,7 +40,7 @@ function Article2(){
     <div className="MainArticle">     
               <h2 className="important">내면 분석가</h2> <br/>
               <figure>
-                <img src="img/innerthinking.jpg" width="400"alt="innerthinking"/>
+                <img src={require("../img/innerthinking.jpg")} width="400"alt="innerthinking"/>
               </figure>
               <p>
                 전 매일밤 <span className="important"><u>머릿속의 세계</u></span>를 탐험합니다. <br/>
@@ -87,7 +87,8 @@ function About(){
 
     return(
      <div id="App-article"> 
-           <button onClick={()=>{
+        <div className='NavBtn'>
+        <button onClick={()=>{
         if(page > 1){
           setPage(page-1);
         }
@@ -97,6 +98,7 @@ function About(){
           setPage(page+1);
         }
       }}>→</button><br/>
+        </div>
       <h3 className="important">{page}/2</h3>
       {article}
 

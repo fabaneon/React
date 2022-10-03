@@ -3,7 +3,7 @@ function Profile(){
         <div id="App-article">
 
          <figure>
-            <img src="img/fabaneon.jpg" alt=""/>
+            <img src={require("../img/fabaneon.jpg")} alt="시그니처 프로필 이미지"/>
             </figure>
 
          <article className="MainArticle">
