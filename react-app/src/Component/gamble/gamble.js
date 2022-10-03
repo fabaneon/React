@@ -1,4 +1,6 @@
 import './gamble.css';
+
+
 import {useState} from 'react';
 
 function BetlistPrinter(props){
@@ -35,11 +37,15 @@ function BetlistPrinter(props){
 
 }
 function GambleTotal(props){
-    var team= null,team2 = null, total = [[null],[null]];
+    const [dice,setDice] = useState(null);
+    const [dicemode, setDicemode] = useState('주사위 굴리기');
+
+    var team= null, total = [[null],[null]], win = null;
     team = props.betlist;
-    var teamaverage = Number(null), team2average = Number(null);
     var teamlist = [[],[]];
     var teamdisplay = [[],[]];
+    var dicedisplay = null;
+
 
     // 베팅 내역 사용자 별로 집계하기.
     if( team[0].length > 0 && team[1].length > 0){
@@ -69,8 +75,11 @@ function GambleTotal(props){
         if(total[0] !== total[1]){
             total[0]= "양쪽 베팅금이 ";
             total[1]= "서로 다릅니다."; 
+            dicedisplay = <h3 className='notice'>
+                {total[0] + total[1]  + "양쪽의 베팅금액을 맞춰주세요"}</h3>;
         }
         else{
+           
             // 예상수익 , 배율 계산
             for(var l2 = 0; l2 < team.length; l2++){
             
@@ -82,7 +91,6 @@ function GambleTotal(props){
                             listtotal += teamlist[l2][a3][a4].bet;
                         }
                     }
-                    console.log(teamdisplay[l2][0]);
                     var calculate = (((total[0]+total[1]-total[l2])/100*(listtotal/(total[l2]/100)))+listtotal).toFixed(0);
                     teamdisplay[l2].push(
                         <div className="Bet-total" key={teamlist[l2][a3][0].id}>
@@ -97,16 +105,45 @@ function GambleTotal(props){
 
                 }   
             }
-
+            dicedisplay = <>
+            <input type="button"className='DiceBtn' value={dicemode} onClick={()=>{
+                    if(dicemode === "주사위 굴리기"){
+                        setDice(<Dice onChangemode={(dice)=>{
+                            console.log("Gambletotal에서 onChangemode");
+                            console.log(dice);
+                            props.onChangemode(dice);
+                            setDice(dice);
+                        }}/>);
+                        setDicemode("게임 초기화");
+                    }
+                    else{
+                        props.onReloadingmode("GAMERELOAD");
+                        setDice("1 ~ 6의 숫자가 나옵니다.");
+                        setDicemode("주사위 굴리기");
+                    }
+                    
+                    }}/>
+                    <h3 className='notice'>{dice}</h3>
+            </>;
+            if(dice > 3){
+                win = <h5 className='notice'>{"2팀 승리!"}</h5>
+            }
+            else if(dice < 4){
+                win = <h5 className='notice'>{"1팀 승리!"}</h5>
+            }
+            else{
+                win = null;
+            }
         }
     } 
         else{
             total[0]= "양쪽에";
             total[1] = "베팅금이 있어야합니다.";
+            dicedisplay = <h3 className='notice'>
+            {total[0] + total[1]}<br/>{"게임에 참여해주세요"}</h3>;
         }
-
-        // 주사위 Dice 모션을 넣고 어느팀이 이긴지 판별되게끔 하고서
-        // 전체 판돈 / 이긴팀원수 => 각 인원별 판돈을 나누어 몇배인지 산출. 
+    
+        // 이제 이기는 판정만 하면 됨.
         // average = (total / );
     return(
         <>
@@ -115,10 +152,14 @@ function GambleTotal(props){
                 {teamdisplay[0]}<br/>
             </div>
             <div className='Bet-reuslt-list'>
-                <div className='Gamble-DiceMotion'>
-                    Dice
+                 <div className='Gamble-DiceMotion'>
+                    {dicedisplay}
+                    {win}
                 </div>
-                {"판돈 : " + (total[0] + total[1]) }
+                <div className='Listed-text'>
+                <h2 className='notice'>{"판돈 : " + (total[0] + total[1]) }</h2>
+
+                </div>
             </div>
             <div className='Bet-result-list'>
                 { " 2팀 참가자 : " + teamlist[1].length + " 명 "}<br/>
@@ -128,11 +169,51 @@ function GambleTotal(props){
         </>
     )
 }
+function Dice(props){
+    let list = null;
+    let calc = null;
+    const [listtotal,setlisttotal] = useState(0);
 
+    console.log( "r굴린횟수 :   "+ listtotal)
+    if(listtotal > 100){
+        setTimeout(function(){
+        }, 500);
+        calc = Math.floor(Math.random()*5 + 1);
+        list=<>{"주사위"}<p>{calc}</p></>;
+        props.onChangemode(calc);
+        console.log("Dice 함수 onChangemode");
+    }
+    else{
+        calc = Math.floor(Math.random()*5 + 1);
+        list=<>{"굴리는 중 . . . "}<p>{calc}</p></>;
+        setTimeout(function(){
+            setlisttotal(listtotal+1); 
+        }, 10);
+    }
+
+    
+
+    console.log("최종 list " + list);
+    return(
+        <>
+            {list}
+        </>
+        
+    );
+}
 function Gamble(){
     const [betlist, setBetlist] = useState([[],[]]);
     const [number, setNumber] = useState(0);
+    const [gameover, setGameover] = useState("GAMESTART");
+    const [dice,setdice] = useState(null);
+    console.log("최종적으로 끄집어낸 dice 눈값" + dice);
+    console.log("최종적으로 끄집어낸 gameover 값" + gameover);
 
+    if(gameover === "GAMERELOAD"){
+        var clearbetlist = [[],[]];
+        setBetlist(clearbetlist);
+        setGameover("GAMESTART");
+    }
     return(
         <div>
             <header className="App-header">
@@ -140,12 +221,22 @@ function Gamble(){
             </header>
             <section className="Container-Gamble">
                 <div className='Gamble-list'>
-                         <BetlistPrinter betlist = {betlist} team="0"/>
+                         <BetlistPrinter dice={dice} betlist = {betlist} gameover={gameover} team="0"/>
                     <article className="Bet-Article">
-                        <GambleTotal betlist = {betlist}/>
+                        <GambleTotal betlist = {betlist} gameover={gameover} 
+                        onReloadingmode={(reload)=>{
+                            console.log("주사위 초기화 버튼 눌러짐");
+                            setGameover(reload);
+                        }}
+                        onChangemode={(dice)=>{
+                            console.log("Gamble에서 onChangemode");
+                            console.log(dice);
+                            setGameover("GAMEOVER");
+                            setdice(dice);
+                        }}/>
                     </article>
 
-                        <BetlistPrinter betlist = {betlist} team="1"/>
+                        <BetlistPrinter dice={dice} betlist = {betlist} gameover={gameover} team="1"/>
                 </div>
 
                 <form onSubmit={(event)=>{
@@ -162,13 +253,15 @@ function Gamble(){
                         console.log(betlist);
                     }}>
                 <div className="Gamble-box">
-                    <div>
-                        Team1:
-                        <input type="radio" name="team" value="0"  required/>
-                        Team2:
-                        <input type="radio" name="team" value="1" required/>
+                    <div className='Gamble-option'>
+                        <span>
+                        주사위 눈 1 ~ 3 :
+                        <input type="radio" name="team" value="0"  required/></span><br/>
+                        <span>
+                        주사위 눈 4 ~ 6 :
+                        <input type="radio" name="team" value="1" required/></span>
                     </div>
-                    <div>
+                    <div className='Gamble-option'>
                         <input type="text" name="name"placeholder="이름" required/>
                         <input type="number" name="bet"min="1000" placeholder="최소 1000원" required/>
                         <input type="submit" value="베팅" />

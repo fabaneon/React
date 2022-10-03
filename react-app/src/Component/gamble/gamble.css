@@ -6,7 +6,7 @@
 }
     .Gamble-box{
         display:flex;
-        width :300px;    
+        min-width :100px;    
 
         align-items: center;
         text-align: left;
@@ -14,6 +14,17 @@
         padding: 4px;
         border: 4px solid black;
     }
+        .Gamble-option{
+            width:auto;
+            min-height:40px;
+            
+            padding: 4px;
+            margin: 4px;
+
+            border: 2px solid green ;
+            align-items: center;
+            text-align: center;
+        }
     .Gamble-list{
         display:flex;
         min-width: 600px;
@@ -28,7 +39,7 @@
         .Gamble-DiceMotion{
             flex:1;
             width:200px;
-            height:200px;
+            height:auto;
             align-items: center;
             justify-items: center;
             text-align: center;
@@ -36,9 +47,9 @@
         }
         .Bet-list,.Bet-result-list{
             flex:1.5;
+            min-width: 120px;
             border-Top: 2px solid green;
             border-Bottom: 2px solid green;
-            align-items:bottom;
             justify-items: center;
             /* text-align: left; */
             padding: 4px;
