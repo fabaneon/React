@@ -186,7 +186,10 @@ function GambleTotal(props){
                     }}/>
                     <h3 className='notice'>{dice}</h3>
             </>;
-            if(dice > 3){
+            if(dice === null){
+                win = "주사위를 굴려보세요!"
+            }
+            else if(dice > 3){
                 win = <h5 className='notice'>{"2팀 승리!"}</h5>
             }
             else if(dice < 4){
