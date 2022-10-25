@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter,Route,Routes,NavLink} from 'react-router-dom';
 import App from './profilemain';
+import Graphicdesign from './webgraphicmain';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 var lact = <>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/"}>Lobby</NavLink></span>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/main"}>ProfilePage</NavLink></span>
-<span id='NavBtn'><NavLink to={"/React-Web-Page/"}>React-Study</NavLink></span>
+<span id='NavBtn'><NavLink to={"/Web-Motion-Graphic/"}>Web-Motion-Graphic</NavLink></span>
 </>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,7 +19,8 @@ root.render(
       <Routes>
        <Route exact path="/Portfolio-Profile_Website/" element={"Lets go to other page"}></Route>
        <Route exact path="/Portfolio-Profile_Website/*" element={<App />}></Route>
-      </Routes>
+       <Route exact path="/Web-Motion-Graphic/" element={<Graphicdesign />}></Route>	
+	  </Routes>
     </BrowserRouter>
   </React.StrictMode>
 
