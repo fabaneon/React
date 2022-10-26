@@ -1,14 +1,14 @@
 
 import {Route,Routes,NavLink} from 'react-router-dom';
 import {useState} from 'react';
-import Profile from './Component/Profile';
-import About from './Component/About';
-import Career from './Component/Career';
-import Roadmap from './Component/Roadmap';
-import Contact from './Component/Contact';
-import Comment from './Component/Comment';
+import Profile from './ProfileComponent/Profile';
+import About from './ProfileComponent/About';
+import Career from './ProfileComponent/Career';
+import Roadmap from './ProfileComponent/Roadmap';
+import Contact from './ProfileComponent/Contact';
+import Comment from './ProfileComponent/Comment';
 
-import './profilemain.css'
+import './BasicDesign.css'
 
 
 
