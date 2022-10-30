@@ -7,7 +7,7 @@ import Graphicdesign from './webgraphicmain';
 
 import reportWebVitals from './reportWebVitals';
 
-// import './index.css';
+import './CSS/BasicDesign.css';
 
 var lact = <>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/"}>로비</NavLink></span>
@@ -21,7 +21,7 @@ root.render(
     <BrowserRouter>
     {lact}
       <Routes>
-       <Route exact path="/Portfolio-Profile_Website/" element={"Lets go to other page"}></Route>
+       <Route exact path="/Portfolio-Profile_Website/" element={"버튼을 눌러 탐색해보세요!"}></Route>
        <Route exact path="/Portfolio-Profile_Website/*" element={<App />}></Route>
        <Route exact path="/Web-Motion-Graphic/*" element={<Graphicdesign />}></Route>	
 	  </Routes>

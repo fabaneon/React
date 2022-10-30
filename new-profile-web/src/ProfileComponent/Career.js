@@ -145,7 +145,7 @@ function CareerNav(props){
   }
 
     return(
-        <div id="App-Nav">
+        <div id="App-Profile-Nav">
           {navlist}
         </div>
     );
@@ -181,7 +181,7 @@ function Career(){
   ];
     
     return(
-        <div id="App-article">
+        <div id="App-Profile-article">
             <CareerNav list = {list}></CareerNav>
           <Routes>
             <Route path=":career_id" element={<SelectedPage list = {list}/>}></Route>

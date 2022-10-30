@@ -1,6 +1,6 @@
 function Profile(){
     return (
-        <div id="App-article">
+        <div id="App-Profile-article">
 
          <figure>
             <img src={require("../img/fabaneon.jpg")} alt="시그니처 프로필 이미지"/>

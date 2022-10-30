@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function Article1(){
+function Article(){
   return(
     <div className="MainArticle">
       <h2 className="important"><a  target="_blank" rel="noreferrer" href="https://ko.wikipedia.org/wiki/%EC%83%81%EB%8C%80%EC%A3%BC%EC%9D%98" title="위키피디아 | 상대주의 정의">
@@ -79,14 +79,14 @@ function About(){
   const [page, setPage] = useState(1);    
   let article = null;
   if(page === 1){
-    article = <Article1></Article1>
+    article = <Article></Article>
   }
   else if(page === 2){
     article = <Article2></Article2>
   }
 
     return(
-     <div id="App-article"> 
+     <div id="App-Profile-article"> 
         <div className='NavBtn'>
         <button onClick={()=>{
         if(page > 1){

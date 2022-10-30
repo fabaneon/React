@@ -8,7 +8,6 @@ import Roadmap from './ProfileComponent/Roadmap';
 import Contact from './ProfileComponent/Contact';
 import Comment from './ProfileComponent/Comment';
 
-import './CSS/BasicDesign.css'
 
 
 
@@ -54,7 +53,7 @@ function Nav(props){
     // };
 
   return(
-    <nav id='App-Nav'>
+    <nav id='App-Profile-Nav'>
       {navlist}
       {subnavlist}
     </nav>
@@ -121,7 +120,7 @@ function App() {
             {navigator}
         </header>
       </div>
-      <main id='App-main'>
+      <main id='App-Profile-main'>
         
         <Routes>
          <Route element={"Not Found"} />
@@ -132,7 +131,7 @@ function App() {
           <Route path="contact" element={<Contact />}></Route>
         </Routes>
       
-        <div id='App-leftside'>
+        <div id='App-Profile-leftside'>
           <Routes>
             <Route path="*" element={"Profile"}></Route>
             <Route path="about" element={"about"}></Route>
@@ -141,7 +140,7 @@ function App() {
             <Route path="contact" element={"contact"}></Route>
           </Routes>
         </div>
-        <div id='App-rightside'>
+        <div id='App-Profile-rightside'>
         <Routes>
             <Route  path="*" element={"Profile"}></Route>
             <Route  path="about" element={"about"}></Route>
@@ -152,7 +151,7 @@ function App() {
         </div>
       </main>
       <footer>
-		  <div id="App-footer">
+		  <div id="App-Profile-footer">
             <Comment></Comment>
 		  </div>
     	  <article className="footer-description">

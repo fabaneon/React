@@ -2,7 +2,7 @@ function Contact(){
     return(
        
 
-        <div id="App-article">
+        <div id="App-Profile-article">
               <figure>
                 <img src={require("../img/business_card.png")} alt="명함"/>
               </figure>

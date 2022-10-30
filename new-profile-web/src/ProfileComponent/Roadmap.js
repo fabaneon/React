@@ -2,7 +2,7 @@
 
 function Roadmap(){
     return(
-        <div id="App-article">
+        <div id="App-Profile-article">
         <section>
           <article className="roadmap description">
             <span className="title">나의 로드맵 ~ 2022.09.02</span>
