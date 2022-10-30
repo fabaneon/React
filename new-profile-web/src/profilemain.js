@@ -8,7 +8,7 @@ import Roadmap from './ProfileComponent/Roadmap';
 import Contact from './ProfileComponent/Contact';
 import Comment from './ProfileComponent/Comment';
 
-import './BasicDesign.css'
+import './CSS/BasicDesign.css'
 
 
 

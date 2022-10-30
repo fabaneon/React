@@ -78,6 +78,8 @@
 	#canvas{
 		background-color: rgba(30,30,30,1);
 		border:2px solid black;
+		width: auto;
+		height: auto;
 	}
       #App-article{
         display:flex;

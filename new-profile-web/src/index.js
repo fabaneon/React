@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 var lact = <>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/"}>Lobby</NavLink></span>
 <span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/main"}>ProfilePage</NavLink></span>
-<span id='NavBtn'><NavLink to={"/Web-Motion-Graphic/"}>Web-Motion-Graphic</NavLink></span>
+<span id='NavBtn'><NavLink to={"/Web-Motion-Graphic/index"}>Web-Motion-Graphic</NavLink></span>
 </>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,7 +19,7 @@ root.render(
       <Routes>
        <Route exact path="/Portfolio-Profile_Website/" element={"Lets go to other page"}></Route>
        <Route exact path="/Portfolio-Profile_Website/*" element={<App />}></Route>
-       <Route exact path="/Web-Motion-Graphic/" element={<Graphicdesign />}></Route>	
+       <Route exact path="/Web-Motion-Graphic/*" element={<Graphicdesign />}></Route>	
 	  </Routes>
     </BrowserRouter>
   </React.StrictMode>
