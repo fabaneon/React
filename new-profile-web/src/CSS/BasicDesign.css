@@ -125,14 +125,23 @@
   #App-footer{
     display:flex;
     flex-direction: column;
-    min-height: 200px;
-    padding: 16px;
+	height:auto;
+	margin: 8px;
+    padding: 8px;
     background-color: rgb(192, 155, 155);
     align-items:center;
     
   }
     .footer-description{
+
+      flex:1;
+	  min-height: 200px;
+	  margin: 16px;
+      padding: 8px;
+      order:6;
       text-align: center;
+		
+	  background-color: rgba(30,30,30,0.50);
     }
   
   

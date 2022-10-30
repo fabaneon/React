@@ -73,23 +73,24 @@
     
     display: flex;
     border: 1px solid red;
-    background-color:snow;
+    background-color:grey;
     justify-content: center;
   }
 	#canvas{
 		order:2;
-		flex:2;
 		background-color: rgba(30,30,30,1);
 		border:2px solid black;
 		width: auto;
 	}
-    #App-leftside{
+    #App-Leftside{
       order: 1;
       flex:1;
       min-height:200px;
+	  min-width:50px;
       background-color: #eee;
    	  align-items: center;
       max-width: 300px;
+	  background-color: snow;
         
     }
   

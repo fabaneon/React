@@ -151,18 +151,16 @@ function App() {
           </Routes>
         </div>
       </main>
-      <footer>
-          <div id="App-footer">
+      <footer id="App-footer">
             <Comment></Comment>
-            <h3 className="title">종합 결과물</h3>
                 <article className="footer-description">
-                  본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
+            	<h3 className="title">종합 결과물</h3>
+					본 웹페이지는 구 웹페이지를 <span id="important">React Frame Work</span>기반으로 마이그레이션한 수정판입니다. <br/>
                   <span className="notice">+2022-09-13 작성</span> <br/>
                   <li><a target="_blank" rel="noreferrer" href="https://fabaneon.github.io/Portfolio-Profile_Website/">
                     이전 HTML 작업물</a></li>
                     2022-09-18 마지막 수정
                 </article>
-          </div>
       </footer> 
     </div>
   );
