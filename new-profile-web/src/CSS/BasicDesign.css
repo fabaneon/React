@@ -91,6 +91,7 @@
         min-height: 90%;
         align-items: center;
         justify-items: center;
+		background-color:snow;
       }
           .important{
             font-size:medium;
@@ -141,7 +142,6 @@
       order:6;
       text-align: center;
 		
-	  background-color: rgba(30,30,30,0.50);
     }
   
   

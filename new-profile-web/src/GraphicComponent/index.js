@@ -29,7 +29,7 @@ function Index(){
 			
 		})
 	
-		
+	
 		function drawing(){
 			ctx.storkeStyle= "red";
 			ctx.lineWidth = 2.5;

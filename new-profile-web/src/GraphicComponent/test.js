@@ -25,7 +25,7 @@ function Index(){
 			
 		window.addEventListener("resize", function(){
 			canvas.resize();
-			// init();
+			init();
 
 		})
 		
@@ -41,9 +41,11 @@ function Index(){
 				ctx.beginPath();
 				ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,false);
 				// ctx.arc(x,y,radius,0,Math.PI*2,false);
-				var rgba = "rgba("+vx+","+y+","+x+",255)";
+				var rgba = "rgba("+this.vx+","+this.y+","+this.x+",255)";
 				ctx.strokeStyle = rgba;
 				ctx.stroke();
+				// ctx.fillStyle = "rgba("+this.y+","+this.y+","+this.x+",0.1)"
+				// ctx.fill();
 
 			}
 			this.update = function(){
@@ -53,10 +55,10 @@ function Index(){
 				// console.log("y" + y);
 
 				// console.log(innerWidth)
-				if(this.x + this.radius> canvas.innerWidth || this.x - this.radius < 0){
+				if(this.x + this.radius > window.innerWidth || this.x - this.radius < 0){
 					this.vx = -this.vx;
 				}
-				if(this.y + this.radius> canvas.innerHeight || this.y - this.radius < 0 ){
+				if(this.y + this.radius > window.innerHeight || this.y - this.radius < 0 ){
 					this.vy = -this.vy;
 				}
 				this.x += this.vx;
@@ -68,7 +70,7 @@ function Index(){
 		
 		let circleArr = [];
 		
-		for(var i=0; i < 100; i++){
+		for(var i=0; i < 300; i++){
 			var radius = Math.floor(Math.random()* 30 );
 			var x = Math.floor(Math.random() * (canvas.width-radius*2));
 			var y = Math.floor(Math.random() * (canvas.height-radius*2));
@@ -82,7 +84,7 @@ function Index(){
 		function init(){
 			circleArr = [];
 			
-			for(var i=0; i > 100; i++){
+			for(var i=0; i < 300; i++){
 				var radius = Math.floor(Math.random()* 30 );
 				var x = Math.floor(Math.random() * (canvas.width-radius*2));
 				var y = Math.floor(Math.random() * (canvas.height-radius*2));
@@ -103,15 +105,20 @@ function Index(){
 				circleArr[i].update();				
 			}
 			
-			ctx.fillStyle = "skyblue"
-
+			ctx.fillStyle = "rgba(0,0,0,0.2)";
+			ctx.fill();
+			ctx.fillRect(canvas.width/4,canvas.offsetTop-50,canvas.width/2,canvas.offsetTop+300)
+			
+			ctx.fillStyle = "white"
+			ctx.textAlign = "center"
+			
 			ctx.font = "bold 36px Arial";
-			ctx.fillText("Welcome", 380,120);    
+			ctx.fillText("Welcome", canvas.width/2,canvas.offsetTop);    
 
 			ctx.font = "bold 24px Arial";
-			ctx.fillText("환영합니다.", 400,200);    
+			ctx.fillText("환영합니다.", canvas.width/2,canvas.offsetTop+150);    
 
-			ctx.fillText("보다 다양한 작품을 준비중입니다.",300,240); 
+			ctx.fillText("보다 다양한 작품을 준비중입니다.",canvas.width/2,canvas.offsetTop+300); 
 
 			ctxRef.current = ctx;			
 		}

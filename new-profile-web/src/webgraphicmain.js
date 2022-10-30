@@ -42,9 +42,6 @@ function GraphicMain(){
 			</header>
 		</div>
 		<div id="App-main">
-			<div id="App-Leftside">
-				<Leftside />
-			</div>
 			<Canvas />	
 		</div>
 		

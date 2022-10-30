@@ -10,9 +10,9 @@ import reportWebVitals from './reportWebVitals';
 // import './index.css';
 
 var lact = <>
-<span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/"}>Lobby</NavLink></span>
-<span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/main"}>ProfilePage</NavLink></span>
-<span id='NavBtn'><NavLink to={"/Web-Motion-Graphic/index"}>Web-Motion-Graphic</NavLink></span>
+<span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/"}>로비</NavLink></span>
+<span id='NavBtn'><NavLink to={"/Portfolio-Profile_Website/main"}>프로필</NavLink></span>
+<span id='NavBtn'><NavLink to={"/Web-Motion-Graphic/index"}>웹 모션 그래픽</NavLink></span>
 </>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
