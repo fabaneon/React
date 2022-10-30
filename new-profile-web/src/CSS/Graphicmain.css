@@ -94,17 +94,3 @@
         
     }
   
-  #App-footer{
-    display:flex;
-    flex-direction: column;
-	max-height:200px;
-    padding: 16px;
-    background-color: rgb(192, 155, 155);
-    align-items:center;
-    
-  }
-    .footer-description{
-      text-align: center;
-    }
-  
-  

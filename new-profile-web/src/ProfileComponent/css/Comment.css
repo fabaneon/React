@@ -1,12 +1,12 @@
 #Comment_Container{
-    display: flex;
-	order:1;
-	flex:2;
+ display: flex;
     flex-direction: column;
-	width:400px;
+	height:auto;
+    max-width:600px;
     border: 2px solid rgba(0, 0, 0, 0.164);
     border-top: 0px;
     border-bottom: 0px;
+    padding: 36px;
     background-color: rgba(0, 0, 0, 0.076);
 
 }
