@@ -1,7 +1,7 @@
 import {Route,Routes,NavLink} from 'react-router-dom';
 import {useRef, useState, useEffect} from 'react';
 // 리액트의 함수형 컴포넌트에서 canvas요소 접근시 useRef를 사용
-import Index from "./GraphicComponent/index";
+import Index from "./GraphicComponent/test";
 
 import "./CSS/Graphicmain.css";
 
@@ -13,9 +13,6 @@ function Canvas(){
 	</Routes>
 	);
 }
-		<Routes>
-			<Route path ="*" element={<script src="./GraphicComponent/index.js"></script>}></Route>
-		</Routes>
 function Leftside(){
 	return(
 	<Routes>

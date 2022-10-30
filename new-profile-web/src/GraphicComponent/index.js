@@ -1,4 +1,8 @@
 import {useRef, useState, useEffect} from 'react';
+
+
+
+
 function Index(){
 
 	const canvasRef = useRef(null); // 캔버스 useRef 사용
@@ -25,7 +29,7 @@ function Index(){
 			
 		})
 	
-	
+		
 		function drawing(){
 			ctx.storkeStyle= "red";
 			ctx.lineWidth = 2.5;
