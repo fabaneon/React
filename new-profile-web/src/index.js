@@ -15,13 +15,40 @@ var lact = <>
 <span id='NavBtn'><NavLink to={"/Web-Motion-Graphic/index"}>웹 모션 그래픽</NavLink></span>
 </>
 
+function LobbyIndex(){
+	return(
+	<>
+		로비 페이지는 현재 준비중입니다.<br/>
+		위 버튼을 눌러 다른 페이지를 탐색해보세요!
+	</>
+	);
+	
+}
+
+function Lobby(){
+	return(
+	<div id="App">
+		<div id="Container">
+			<header id="App-header">
+				<span className="title">Welcome to My Portfolio!</span>
+			</header>
+		</div>
+		<div id="App-main">
+			<LobbyIndex />	
+		</div>		
+	</div>
+	
+	);
+}
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     {lact}
       <Routes>
-       <Route exact path="/Portfolio-Profile_Website/" element={"버튼을 눌러 탐색해보세요!"}></Route>
+       <Route exact path="/Portfolio-Profile_Website/" element={<Lobby />}></Route>
        <Route exact path="/Portfolio-Profile_Website/*" element={<App />}></Route>
        <Route exact path="/Web-Motion-Graphic/*" element={<Graphicdesign />}></Route>	
 	  </Routes>
