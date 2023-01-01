@@ -4,6 +4,7 @@ import Webprofile from './Component/Web-Profile/WebProfile';
 import CLASSFUNCTION from './Component/class&function/classfunction';
 import RandomChoice from './Component/randomchoice/randomchoice';
 import Gamble from './Component/gamble/gamble'
+import Posting from './Component/posting/posting'
 
 
 import Daynighthandler from './function/js/daynighthandler';
@@ -44,6 +45,10 @@ function MainNav(props){
         event.preventDefault();
         props.onChangeMode("GAMBLE");
       }} >갬블링</a></li>
+            <li><a title="2023-01-01" href="/Posting/" onClick={(event)=>{
+        event.preventDefault();
+        props.onChangeMode("POSTING");
+      }} >글쓰기 기능</a></li>
 
     </div>
   );
@@ -98,7 +103,12 @@ function App(){
       ArticleContents = <Gamble></Gamble>
       
     }
-    Navi = null;
+    else if(project === 'POSTING'){
+      ArticleContents = <Posting></Posting>
+      
+    }
+
+	 Navi = null;
     button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
   }
   // console.log("mode : " + mode + " project : " + project);
