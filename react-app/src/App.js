@@ -72,10 +72,10 @@ function App(){
   const [mode, setMode] = useState('project-unselected');
   const [project, setProject] = useState('');
   // const [project, setProject] = useState('none')
-  let ArticleContents,Navi,button;
+  let Article,ArticleContents,Navi,button;
 
   if(mode === 'project-unselected'){
-      ArticleContents = <MainArticle title = "Welcome to my React-Study" subtitle="환영합니다. 아래 목차를 통해서 React 학습 결과물을 열람해볼 수 있습니다 :)" body = "아래 버튼을 눌러 작업물을 확인해보세요."></MainArticle>
+      Article = <MainArticle title = "Welcome to my React-Study" subtitle="환영합니다. 아래 목차를 통해서 React 학습 결과물을 열람해볼 수 있습니다 :)" body = "아래 버튼을 눌러 작업물을 확인해보세요."></MainArticle>
       Navi = <MainNav onChangeMode = {(project)=>{
         setMode('project-selected');
         setProject(project);
@@ -107,6 +107,7 @@ function App(){
       ArticleContents = <Posting></Posting>
       
     }
+	 Article = null;
 
 	 Navi = null;
     button = <button className="ReturnToLobby" onClick={()=>{setMode('project-unselected');}}>처음으로</button>
@@ -117,10 +118,11 @@ function App(){
      <div className="App">
       {/* <Daynighthandler></Daynighthandler> */}
         <div className="MainOption">
-        {ArticleContents}
+        {Article}
         
         {Navi}
         </div>
+		{ArticleContents}
        
       <footer className="FooterOption">
           {button}

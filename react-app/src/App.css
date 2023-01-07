@@ -37,6 +37,9 @@ a{
   
 
 .MainOption{
+	place-items: center;
+	text-align: center;
+
   flex:3;
 }
 .App-header{
@@ -102,11 +105,11 @@ a{
           order:2;
           flex:3;
           max-width: auto;
-          text-align: center;
+          //text-align: center;
           border-width:1px;
           border-color:rgb(109, 203, 207);
           border-style: solid;
-          padding: 10vh;
+          padding: 1vh;
 
         }
         .Aside{

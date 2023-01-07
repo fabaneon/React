@@ -1,0 +1,14 @@
+.Article{
+	display:flex;
+	flex-direction:column;;
+}
+.Original-Post,.Article-Edit{
+	align-items:center;
+	align-content:center;
+	min-width:600px;
+	min-height:40vh;
+}
+.Article-Top-OptionBar{
+	display:grid;
+	text-align:left;
+}
