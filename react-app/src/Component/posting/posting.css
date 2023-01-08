@@ -2,13 +2,21 @@
 	display:flex;
 	flex-direction:column;;
 }
-.Original-Post,.Article-Edit{
+.Original-Post,.Article-Edit,.Posted-article,.Article-write-content{
 	align-items:center;
 	align-content:center;
 	min-width:600px;
 	min-height:40vh;
+	white-space:pre-wrap;
 }
 .Article-Top-OptionBar{
-	display:grid;
-	text-align:left;
+	display:flex;
+	flex-direction:row;
+	align-content:center;
+	align-self:center;
+}
+form{
+	align-items:center;
+	align-self:center;
+
 }
