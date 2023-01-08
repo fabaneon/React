@@ -20,6 +20,7 @@
     .CommentArticle_text{
         word-break: break-all;
         margin: 8px;
+		white-space:pre-wrap;
     }
 
 #Comment_Layer{
