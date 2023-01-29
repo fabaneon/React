@@ -36,6 +36,10 @@
             flex:1;
             color:rgb(226, 211, 211);
           }
+			.many-article{
+				font-weight:bold;
+				
+			}
       #App-Profile-Nav{
         display: flex;
         flex:1;
@@ -68,6 +72,21 @@
           .NavBtn-text{
             color:rgb(199, 199, 199);
           }
+#App-Lobby{
+	display:flex;
+	flex-direction: column;
+	text-align: center;
+	order:2;
+	flex:3;
+	width: 100vw;
+	min-height: 90%;
+	background-color:snow;
+}
+#line{
+	display:block;
+	background-color:black;
+	color:white;
+}
   #App-Profile-main{
     
     display: flex;
@@ -90,6 +109,7 @@
           .important{
             font-size:medium;
             color: indianred;
+			font-weight:bold;
           }
           .notice{
             color: rgb(63, 189, 63)
@@ -132,4 +152,6 @@
       text-align: center;
     }
   
-  
+a{
+	color:white;
+}
