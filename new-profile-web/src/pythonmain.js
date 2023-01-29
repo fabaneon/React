@@ -8,7 +8,8 @@ function Python(){
 	return(
 		<div id="Container">
 			<div id="App-Python-Main">
-				아직 준비중
+				<a target="_blank" href="./PythonComponent/crud.py">python</a>
+				
 			</div>
 		</div>
 	);
