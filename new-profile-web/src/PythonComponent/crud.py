@@ -2,15 +2,12 @@
 print("Content-Type: text/html")
 print()
 
-import os
 
 
-print('''
-    
-    <div>
-        hello python web
-    </div>
+#pythonCRUD = '''
+#    <div>
+#        hello python web
+#    </div>
+#'''
 
-
-
-''')
+print('pythonCRUD')

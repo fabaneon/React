@@ -23,7 +23,7 @@
 		height: 10vh;
         padding:12px;
       }
-      #App-Graphic-Nav{
+      #App-Python-Nav{
         display: flex;
         flex:1;
         width:auto;
@@ -55,7 +55,7 @@
           .NavBtn-text{
             color:rgb(199, 199, 199);
           }
-  #App-main{
+  #App-Python-Main{
     
     display: flex;
     border: 1px solid red;
