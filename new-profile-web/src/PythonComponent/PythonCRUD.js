@@ -2,14 +2,9 @@ function PythonCRUD(){
 	return(
 		<>
 			<py-script>
-			
-				print('''
-					
-						ok python
-					
-			
-				''')
+				print('das')
 			</py-script>
+			
 		</>
 	);
 }

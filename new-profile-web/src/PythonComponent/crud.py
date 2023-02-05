@@ -2,12 +2,25 @@
 print("Content-Type: text/html")
 print()
 
+html_text = """
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8"/>
+        </head>
+        <body>
+            <div>
+                ff
+            </div>
+        </body>
+    </html>
+"""
 
 
-#pythonCRUD = '''
-#    <div>
-#        hello python web
-#    </div>
-#'''
+with open('crud.html','w') as crud:
+    crud.write(html_text)
+    crud.close()
+doc = open('crud.html','r').read()
 
-print('pythonCRUD')
+    
+print(doc)
